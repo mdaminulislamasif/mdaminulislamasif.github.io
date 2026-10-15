@@ -1,8 +1,8 @@
 @echo off
-title ASIFGKBD.COM - Backend Server (Port 5000)
+title ASIF GK - Cyber Server (Port 5000)
 color 0b
 echo ==============================================================
-echo             ASIFGKBD.COM - CYBER BACKEND SERVER
+echo             ASIF GK - CYBER BACKEND SERVER
 echo         Architect: ASIF GK ^| Port 5000 ^| Local & LAN
 echo ==============================================================
 echo.

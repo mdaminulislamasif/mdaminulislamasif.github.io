@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 =============================================================================
-ASIFGKBD.COM — Dedicated Cyber Backend & Web Server
+ASIF GK — Dedicated Cyber Backend & Web Server
 Architect: ASIF GK
 Phone: +8801773860372
 Email: asifgk.hacker@gmail.com
-Domain: ASIFGKBD.com
+Portal: https://mdaminulislamasif.github.io/
 =============================================================================
 """
 
@@ -83,7 +83,7 @@ class AsifGkServerHandler(SimpleHTTPRequestHandler):
             messages = load_messages()
             status_data = {
                 "status": "ONLINE",
-                "domain": "ASIFGKBD.COM",
+                "portal": "https://mdaminulislamasif.github.io/",
                 "architect": "ASIF GK",
                 "hotline": "+8801773860372",
                 "email": "asifgk.hacker@gmail.com",
@@ -131,7 +131,7 @@ class AsifGkServerHandler(SimpleHTTPRequestHandler):
 
             # Terminal alert for ASIF GK
             print("\n" + "=" * 65)
-            print(" ⚡ [NEW TRANSMISSION RECEIVED ON ASIFGKBD.COM] ⚡")
+            print(" ⚡ [NEW TRANSMISSION RECEIVED ON ASIF GK CORE] ⚡")
             print(f" • From Name : {data.get('name', 'N/A')}")
             print(f" • Email     : {data.get('email', 'N/A')}")
             print(f" • Domain    : {data.get('domain', 'N/A')}")
@@ -145,7 +145,7 @@ class AsifGkServerHandler(SimpleHTTPRequestHandler):
             self.end_headers()
             response = {
                 "success": True,
-                "message": "Transmission logged successfully into ASIFGKBD Secure Core.",
+                "message": "Transmission logged successfully into ASIF GK Secure Core.",
                 "hotline": "+8801773860372",
                 "email": "asifgk.hacker@gmail.com"
             }
@@ -169,12 +169,12 @@ def run_server():
     httpd = HTTPServer(server_address, AsifGkServerHandler)
 
     print("\n" + "█" * 68)
-    print("  🌐 ASIFGKBD.COM — HIGH-SPEED CYBER BACKEND SERVER")
+    print("  🌐 ASIF GK — HIGH-SPEED CYBER BACKEND SERVER")
     print("  Architect : ASIF GK")
     print("  Hotline   : +8801773860372 (WhatsApp Verified)")
     print("  Gmail     : asifgk.hacker@gmail.com")
     print("  GitHub    : https://github.com/mdaminulislamasif")
-    print("  Domain    : https://asifgkbd.com")
+    print("  Portal    : https://mdaminulislamasif.github.io/")
     print("█" * 68)
     print(f"\n  [✔] Local Address   : http://localhost:{PORT}")
     print(f"  [✔] Loopback Address: http://127.0.0.1:{PORT}")
@@ -190,7 +190,7 @@ def run_server():
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
-        print("\n[!] Shutting down ASIFGKBD Server gracefully...")
+        print("\n[!] Shutting down ASIF GK Server gracefully...")
         httpd.server_close()
         print("[✔] Server stopped.")
 

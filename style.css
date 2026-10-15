@@ -1,6 +1,7 @@
 /* ==========================================================================
-   ASIFGKBD.COM — Official Portal Design System
+   ASIF GK — Official Portal Design System
    Engineered for ASIF GK (JARVIS AI Architect & Cyber Security Specialist)
+   Portal: https://mdaminulislamasif.github.io/
    ========================================================================== */
 
 :root {
@@ -71,6 +72,19 @@ body {
     min-height: 100vh;
 }
 
+/* Scroll Progress Bar */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cyan), var(--gold), var(--green));
+    z-index: 10000;
+    width: 0%;
+    transition: width 0.08s ease-out;
+    box-shadow: 0 0 10px var(--cyan);
+}
+
 /* Custom Selection */
 ::selection {
     background: var(--cyan);
@@ -130,6 +144,16 @@ body {
     background: var(--gold);
     bottom: 50px;
     right: -100px;
+}
+
+.purple-glow {
+    width: 450px;
+    height: 450px;
+    background: var(--purple);
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.12;
 }
 
 /* Custom Futuristic Cursor */
@@ -1068,6 +1092,49 @@ main {
     line-height: 1.4;
 }
 
+/* Interactive Filter Category Tabs */
+.systems-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.8rem;
+}
+
+.filter-tab {
+    background: rgba(14, 21, 35, 0.75);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    color: var(--text-secondary);
+    padding: 0.55rem 1.2rem;
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(12px);
+}
+
+.filter-tab i {
+    color: var(--cyan);
+    transition: var(--transition-fast);
+}
+
+.filter-tab:hover, .filter-tab.active {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(0, 240, 255, 0.05));
+    border-color: var(--cyan);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.filter-tab.active i {
+    color: var(--gold);
+}
+
 /* Systems & Architecture Grid */
 .systems-grid {
     display: grid;
@@ -1083,6 +1150,14 @@ main {
     padding: 2.2rem;
     transition: var(--transition-smooth);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+[data-tilt] {
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
 }
 
 .system-card:hover {

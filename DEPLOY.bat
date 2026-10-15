@@ -1,28 +1,25 @@
 @echo off
-title ASIFGKBD.COM - Deploy to GitHub Pages
+title ASIF GK Portfolio - Deploy to GitHub Pages
 color 0b
 echo ==============================================================
-echo        DEPLOY ASIFGKBD.COM TO LIVE INTERNET (GITHUB PAGES)
-echo           Architect: ASIF GK ^| GitHub: mdaminulislamasif
+echo        DEPLOY ASIF GK OFFICIAL PORTAL (GITHUB PAGES)
+echo           Architect: ASIF GK ^| Live: mdaminulislamasif.github.io
 echo ==============================================================
 echo.
 cd /d "%~dp0"
 
-if not exist "CNAME" (
-    echo asifgkbd.com > CNAME
+REM Ensure NO conflicting CNAME file exists so GitHub Pages serves cleanly
+if exist "CNAME" (
+    del /f /q "CNAME" 2>nul
 )
 
 git init
 git branch -M main
 git add .
-git commit -m "Deploy ASIFGKBD.COM Official Portal"
+git commit -m "Deploy ASIF GK Official Portfolio (mdaminulislamasif.github.io)"
 
 echo.
-set /p REPO_URL="[*] Paste your GitHub Repository URL (e.g. https://github.com/mdaminulislamasif/asifgkbd.git): "
-if not "%REPO_URL%"=="" (
-    git remote remove origin 2>nul
-    git remote add origin %REPO_URL%
-)
-
 git push -u origin main
+echo.
+echo [OK] Deployed successfully to https://mdaminulislamasif.github.io/
 pause

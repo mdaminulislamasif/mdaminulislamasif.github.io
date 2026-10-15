@@ -1,6 +1,7 @@
 /* ==========================================================================
-   ASIFGKBD.COM — Interactive Engine & Cyber Shell (app.js)
-   Engineered for ASIF GK (JARVIS AI Architect)
+   ASIF GK — Interactive Engine & Cyber Shell (app.js)
+   Official Portfolio & Cyber Ecosystem
+   Architect: ASIF GK | Live: https://mdaminulislamasif.github.io/
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -49,14 +50,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
                 osc.start(now);
                 osc.stop(now + 0.12);
-            } else if (type === 'chord') {
+            } else if (type === 'chord' || type === 'success') {
                 osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(220, now);
-                osc.frequency.exponentialRampToValueAtTime(660, now + 0.25);
-                gain.gain.setValueAtTime(0.03, now);
+                osc.frequency.setValueAtTime(260, now);
+                osc.frequency.exponentialRampToValueAtTime(780, now + 0.25);
+                gain.gain.setValueAtTime(0.04, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
                 osc.start(now);
                 osc.stop(now + 0.25);
+            } else if (type === 'click') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(1200, now);
+                osc.frequency.exponentialRampToValueAtTime(600, now + 0.04);
+                gain.gain.setValueAtTime(0.03, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+                osc.start(now);
+                osc.stop(now + 0.04);
             }
         } catch (e) {
             // Audio policy fallback
@@ -76,12 +85,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Attach click beeps to interactive buttons
-    document.querySelectorAll('.cyber-button, .qc-btn, .mini-btn, .svc-option, .addon-checkbox').forEach(el => {
+    document.querySelectorAll('.cyber-button, .qc-btn, .mini-btn, .svc-option, .addon-checkbox, .filter-tab, .nav-link').forEach(el => {
         el.addEventListener('mouseenter', () => playSound('beep'));
     });
 
     // -------------------------------------------------------------------------
-    // 2. Futuristic Custom Cursor
+    // 2. Scroll Progress Bar & Dynamic Latency Indicator
+    // -------------------------------------------------------------------------
+    const scrollProgressBar = document.getElementById('scrollProgressBar');
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (scrollProgressBar) {
+            scrollProgressBar.style.width = `${scrollPct}%`;
+        }
+    });
+
+    const livePingVal = document.getElementById('livePingVal');
+    if (livePingVal) {
+        setInterval(() => {
+            const simulatedPing = (1.5 + Math.random() * 0.9).toFixed(1);
+            livePingVal.textContent = `${simulatedPing}ms`;
+        }, 2800);
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. Futuristic Custom Cursor
     // -------------------------------------------------------------------------
     const cursor = document.getElementById('customCursor');
     const cursorDot = document.getElementById('customCursorDot');
@@ -108,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         animateCursor();
 
-        document.querySelectorAll('a, button, input, textarea, .svc-option, .addon-checkbox').forEach(el => {
+        document.querySelectorAll('a, button, input, textarea, .svc-option, .addon-checkbox, .system-card, .filter-tab').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.transform = 'translate(-50%, -50%) scale(1.6)';
                 cursor.style.borderColor = 'var(--gold)';
@@ -121,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------------------
-    // 3. Cyber Particles & Grid Canvas
+    // 4. Cyber Particles & Grid Canvas (Interactive with Mouse Proximity)
     // -------------------------------------------------------------------------
     const canvas = document.getElementById('cyberCanvas');
     if (canvas) {
@@ -129,13 +159,19 @@ document.addEventListener('DOMContentLoaded', () => {
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
 
+        let mousePos = { x: -1000, y: -1000 };
+        window.addEventListener('mousemove', (e) => {
+            mousePos.x = e.clientX;
+            mousePos.y = e.clientY;
+        });
+
         window.addEventListener('resize', () => {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
         });
 
         const particles = [];
-        const particleCount = Math.min(Math.floor(window.innerWidth / 16), 70);
+        const particleCount = Math.min(Math.floor(window.innerWidth / 15), 75);
 
         for (let i = 0; i < particleCount; i++) {
             particles.push({
@@ -143,15 +179,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 y: Math.random() * height,
                 vx: (Math.random() - 0.5) * 0.6,
                 vy: (Math.random() - 0.5) * 0.6,
-                radius: Math.random() * 1.8 + 0.8,
-                color: Math.random() > 0.3 ? 'rgba(0, 240, 255, 0.7)' : 'rgba(255, 208, 0, 0.7)'
+                radius: Math.random() * 2 + 0.8,
+                color: Math.random() > 0.35 ? 'rgba(0, 240, 255, 0.75)' : 'rgba(255, 208, 0, 0.75)'
             });
         }
 
         function renderCanvas() {
             ctx.clearRect(0, 0, width, height);
 
-            // Connect lines between nearby particles
             for (let i = 0; i < particles.length; i++) {
                 const p1 = particles[i];
                 p1.x += p1.vx;
@@ -161,6 +196,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (p1.x > width) p1.x = 0;
                 if (p1.y < 0) p1.y = height;
                 if (p1.y > height) p1.y = 0;
+
+                // Mouse proximity push
+                const dxMouse = p1.x - mousePos.x;
+                const dyMouse = p1.y - mousePos.y;
+                const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                if (distMouse < 90) {
+                    p1.x += (dxMouse / distMouse) * 1.5;
+                    p1.y += (dyMouse / distMouse) * 1.5;
+                }
 
                 ctx.beginPath();
                 ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
@@ -173,9 +217,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const dy = p1.y - p2.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
-                    if (dist < 120) {
+                    if (dist < 125) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.18 * (1 - dist / 120)})`;
+                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.18 * (1 - dist / 125)})`;
                         ctx.lineWidth = 0.6;
                         ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
@@ -190,38 +234,100 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------------------
-    // 4. Interactive Cyber Shell / Terminal Emulator
+    // 5. 3D Perspective Tilt on Hover ([data-tilt])
+    // -------------------------------------------------------------------------
+    const tiltElements = document.querySelectorAll('[data-tilt]');
+    tiltElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -6;
+            const rotateY = ((x - centerX) / centerX) * 6;
+
+            el.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+        });
+
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+        });
+    });
+
+    // -------------------------------------------------------------------------
+    // 6. Interactive System Category Filtering
+    // -------------------------------------------------------------------------
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const systemCards = document.querySelectorAll('.system-card');
+
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            filterTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            playSound('click');
+
+            const filterValue = tab.getAttribute('data-filter');
+
+            systemCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (filterValue === 'all' || cardCategory === filterValue) {
+                    card.style.display = 'flex';
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.96)';
+                    setTimeout(() => {
+                        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 20);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // -------------------------------------------------------------------------
+    // 7. Interactive Cyber Shell / Terminal Emulator (Enhanced with Command History)
     // -------------------------------------------------------------------------
     const terminalInput = document.getElementById('terminalInput');
     const terminalBody = document.getElementById('terminalBody');
     const termSendBtn = document.getElementById('termSendBtn');
     const clearTermBtn = document.getElementById('clearTermBtn');
 
+    const commandHistory = [];
+    let historyIndex = -1;
+
     const commands = {
         help: `
-<span class="gold">ASIFGKBD.COM SYSTEM COMMANDS:</span>
+<span class="gold">ASIF GK CYBER CORE OPERATIONS:</span>
   • <span class="cyan">about</span>       - Architectural background of ASIF GK
   • <span class="cyan">jarvis</span>      - Details on JARVIS Autonomous AI Core
   • <span class="cyan">cyber</span>       - Offensive & Defensive Security Tools
   • <span class="cyan">isp</span>         - Carrier-grade ISP & BDIX routing blueprints
+  • <span class="cyan">projects</span>    - Flagship software and hardware architectures
   • <span class="cyan">skills</span>      - Engineering competencies & stack
   • <span class="cyan">bdix</span>        - Dhaka BDIX peering routing metrics
+  • <span class="cyan">status</span>      - Real-time system telemetry and node health
+  • <span class="cyan">whoami</span>      - Verify terminal connection session
+  • <span class="cyan">quote</span>       - Engineering philosophy
   • <span class="cyan">contact</span>     - Direct verified channels for ASIF GK
-  • <span class="cyan">matrix</span>      - Trigger visual matrix data stream
+  • <span class="cyan">matrix</span>      - Trigger visual matrix cyber data stream
   • <span class="cyan">clear</span>       - Clear current console buffer`,
 
         about: `
 <span class="cyan">[IDENT]</span> <strong>ASIF GK</strong> — Next-Gen AI Architect & Cyber Security Specialist
-<span class="green">[LOCATION]</span> Dhaka, Bangladesh (BD)
-<span class="gold">[PORTAL]</span> ASIFGKBD.COM
+<span class="green">[LOCATION]</span> Dhaka, Bangladesh 🇧🇩
+<span class="gold">[PORTAL]</span> https://mdaminulislamasif.github.io/
 <span class="text-secondary">Specialized in autonomous edge AI models, localized LLMs with zero API quotas, 
 hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`,
 
         jarvis: `
 <span class="cyan">[JARVIS NEURAL CORE ACTIVE]</span>
-• Version: 2.6.4 Autonomous Local Daemon
+• Version: 3.2.0 Autonomous Local Daemon
 • Voice Synthesis: Dual Bengali (বাংলা) & English Engine
-• Offline Brain: 16+ Specialized Modular Brains
+• Offline Brain: 16+ Specialized Modular Brains (Zero Cloud Quota)
 • 3D Telemetry: Real-time holographic HUD + Face visualizer
 • Web Learner: Autonomous Infinite-Tab Research Harvester`,
 
@@ -239,6 +345,13 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
 • Bandwidth Shaper & Radius Auto-Billing integration
 • Redundant Multi-WAN Border Gateway Failover`,
 
+        projects: `
+<span class="cyan">[FLAGSHIP REPOSITORIES & SYSTEMS]</span>
+1. <strong>JARVIS AI Suite</strong> — Autonomous Bengali/English Desktop AI Core
+2. <strong>Cyber Core Watchdog</strong> — Zero-Trust process sentinel & security suite
+3. <strong>BDIX High-Speed Router Engine</strong> — MikroTik 10G+ carrier network design
+4. <strong>Aether OS Sci-Fi HUD</strong> — Futuristic gesture & holographic desktop UI`,
+
         skills: `
 <span class="cyan">[TECH RADAR MATRIX]</span>
 • Python / PyTorch / AI Agents : 98%
@@ -253,20 +366,35 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
 • Gateway Node: Dhaka Core IXP-1
 • Throughput Capacity: 10 Gbps Aggregated
 • Peering Status: ESTABLISHED (Prefixes: 4,820 active)
-• Packet Loss: 0.00%`,
+• Packet Loss: 0.00%
+• Latency: 1.8ms (Zero jitter)`,
+
+        status: `
+<span class="green">[SYSTEM HEALTH: 100% NOMINAL]</span>
+• Neural Brains : 16 / 16 ONLINE
+• BDIX Gateway  : LINK ACTIVE (10 Gbps)
+• Watchdog Guard: 0 Breaches / Active Process Lockdown
+• Memory Footprint: Optimized (Low Latency Native Loop)`,
+
+        whoami: `
+<span class="cyan">[SESSION]</span> guest@asifgk-terminal // Access Level: Standard Explorer.
+Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted channel.`,
+
+        quote: `
+<span class="gold">"Code should be autonomous, resilient, and beautiful. True engineering removes dependencies on external servers and grants absolute sovereignty."</span> — ASIF GK`,
 
         contact: `
 <span class="cyan">[VERIFIED CHANNELS]</span>
-• Domain   : https://asifgkbd.com
-• WhatsApp : +8801773860372 (Direct Hotline)
+• Portal   : https://mdaminulislamasif.github.io/
+• WhatsApp : +8801773860372 (Direct Hotline // Instant Response)
 • Email    : asifgk.hacker@gmail.com
 • GitHub   : https://github.com/mdaminulislamasif
-• Base     : Dhaka, Bangladesh`,
+• Base     : Dhaka, Bangladesh 🇧🇩`,
 
         matrix: `
 <span class="green">Initializing Matrix Cyber Stream...</span>
 <span class="green">01000001 01010011 01001001 01000110 01000111 01001011</span>
-<span class="green">[SYSTEM OVERRIDE SUCCESSFUL: ASIFGKBD CORE ENGAGED]</span>`
+<span class="green">[SYSTEM OVERRIDE SUCCESSFUL: ASIF GK NEURAL CORE ENGAGED]</span>`
     };
 
     function appendTerminal(lineHtml) {
@@ -281,6 +409,9 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
     function executeCommand(rawCmd) {
         const cmd = rawCmd.trim().toLowerCase();
         if (!cmd) return;
+
+        commandHistory.push(rawCmd);
+        historyIndex = commandHistory.length;
 
         playSound('terminal');
 
@@ -312,6 +443,19 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
                 const val = terminalInput.value;
                 terminalInput.value = '';
                 executeCommand(val);
+            } else if (e.key === 'ArrowUp') {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    terminalInput.value = commandHistory[historyIndex] || '';
+                }
+            } else if (e.key === 'ArrowDown') {
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    terminalInput.value = commandHistory[historyIndex] || '';
+                } else {
+                    historyIndex = commandHistory.length;
+                    terminalInput.value = '';
+                }
             }
         });
     }
@@ -341,7 +485,7 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
     });
 
     // -------------------------------------------------------------------------
-    // 5. Interactive Service & Project Calculator
+    // 8. Interactive Service & Project Calculator
     // -------------------------------------------------------------------------
     const estTotalPrice = document.getElementById('estTotalPrice');
     const estBdtPrice = document.getElementById('estBdtPrice');
@@ -366,7 +510,7 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
         });
 
         const totalUSD = basePrice + addonPrice;
-        const totalBDT = totalUSD * 120; // 1 USD ≈ 120 BDT
+        const totalBDT = totalUSD * 122; // 1 USD ≈ 122 BDT
         const totalDays = baseDays + addonDays;
 
         if (estTotalPrice) estTotalPrice.textContent = totalUSD.toLocaleString();
@@ -374,13 +518,13 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
         if (estTimeline) estTimeline.textContent = `${totalDays} Days`;
 
         // Update WhatsApp & Email links with prefilled order text
-        const orderSummary = `Hi ASIF GK, I configured a project on ASIFGKBD.com:%0A- Core Tier: ${encodeURIComponent(selectedTierName)}%0A- Add-ons: ${encodeURIComponent(selectedAddons.join(', ') || 'None')}%0A- Estimated Budget: $${totalUSD} USD (~ ${totalBDT.toLocaleString()} BDT)%0A- Estimated Timeline: ${totalDays} Days. Let's discuss details!`;
+        const orderSummary = `Hi ASIF GK, I configured a project on your Official Portfolio (mdaminulislamasif.github.io):%0A- Core Tier: ${encodeURIComponent(selectedTierName)}%0A- Add-ons: ${encodeURIComponent(selectedAddons.join(', ') || 'None')}%0A- Estimated Budget: $${totalUSD} USD (~ ${totalBDT.toLocaleString()} BDT)%0A- Estimated Timeline: ${totalDays} Days. Let's discuss details!`;
 
         if (orderWhatsAppBtn) {
             orderWhatsAppBtn.href = `https://wa.me/8801773860372?text=${orderSummary}`;
         }
         if (orderEmailBtn) {
-            orderEmailBtn.href = `mailto:asifgk.hacker@gmail.com?subject=Project%20Order%20Specification%20-%20ASIFGKBD.com&body=${orderSummary.replace(/%0A/g, '%0D%0A')}`;
+            orderEmailBtn.href = `mailto:asifgk.hacker@gmail.com?subject=Project%20Order%20Specification%20-%20ASIF%20GK%20Portfolio&body=${orderSummary.replace(/%0A/g, '%0D%0A')}`;
         }
     }
 
@@ -391,14 +535,14 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
             basePrice = parseInt(opt.getAttribute('data-price') || '450', 10);
             baseDays = parseInt(opt.getAttribute('data-days') || '10', 10);
             selectedTierName = opt.querySelector('.svc-title').textContent;
-            playSound('beep');
+            playSound('click');
             updateEstimator();
         });
     });
 
     document.querySelectorAll('.addon-input').forEach(chk => {
         chk.addEventListener('change', () => {
-            playSound('beep');
+            playSound('click');
             updateEstimator();
         });
     });
@@ -406,7 +550,7 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
     updateEstimator();
 
     // -------------------------------------------------------------------------
-    // 6. Language Toggle (English <-> বাংলা)
+    // 9. Language Toggle (English <-> বাংলা)
     // -------------------------------------------------------------------------
     let currentLang = 'en';
     const langToggleBtn = document.getElementById('langToggleBtn');
@@ -428,7 +572,7 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
     }
 
     // -------------------------------------------------------------------------
-    // 7. Encrypted Dispatch Contact Form
+    // 10. Encrypted Dispatch Contact Form
     // -------------------------------------------------------------------------
     const contactForm = document.getElementById('contactForm');
     const formFeedback = document.getElementById('formFeedback');
@@ -447,7 +591,7 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
             formSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Encrypting & Transmitting...';
             playSound('terminal');
 
-            // Transmit to backend server if active
+            // Optional backend transmission
             const payload = {
                 name: name,
                 email: email,
@@ -461,24 +605,24 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             }).catch(() => {
-                // Standalone static fallback
+                // Static fallback
             });
 
             setTimeout(() => {
                 formFeedback.className = 'form-feedback success';
                 formFeedback.classList.remove('hidden');
-                formFeedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> Transmission Received, <strong>${escapeHtml(name)}</strong>! ASIF GK has received your dispatch regarding <strong>${escapeHtml(domain)}</strong>. A verified reply will be dispatched to <strong>${escapeHtml(email)}</strong> (or via WhatsApp: +8801773860372) within 24 hours.`;
-                playSound('chord');
+                formFeedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> Transmission Received, <strong>${escapeHtml(name)}</strong>! ASIF GK has logged your inquiry regarding <strong>${escapeHtml(domain)}</strong>. A verified reply will be dispatched to <strong>${escapeHtml(email)}</strong> (or via WhatsApp: +8801773860372) within 24 hours.`;
+                playSound('success');
 
                 contactForm.reset();
                 formSubmitBtn.disabled = false;
                 formSubmitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Transmit Encrypted Message';
-            }, 1200);
+            }, 1000);
         });
     }
 
     // -------------------------------------------------------------------------
-    // 8. Mobile Navigation Hamburger
+    // 11. Mobile Navigation Hamburger
     // -------------------------------------------------------------------------
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
@@ -497,7 +641,7 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
     }
 
     // -------------------------------------------------------------------------
-    // 9. Back to Top & Live Clock
+    // 12. Back to Top & Live Clock
     // -------------------------------------------------------------------------
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
@@ -528,13 +672,13 @@ hardware RF security (Flipper Zero), and MikroTik carrier-grade routing.</span>`
     }
 
     // -------------------------------------------------------------------------
-    // 10. Initial Startup Sound & Console Greeting
+    // 13. Initial Audio Context Activation & Console Greeting
     // -------------------------------------------------------------------------
     window.addEventListener('click', () => {
         getAudioContext();
     }, { once: true });
 
-    console.log("%c ASIFGKBD.COM %c Official Cyber Portal // Architect: ASIF GK ", 
+    console.log("%c ASIF GK %c Official Cyber Portfolio // Architect: ASIF GK ", 
         "background: #00f0ff; color: #000; font-weight: bold; padding: 4px 8px; border-radius: 4px;",
         "background: #0a0e17; color: #ffd000; padding: 4px 8px; border-radius: 4px; font-weight: bold;");
 });

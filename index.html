@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASIF GK | ASIFGKBD.com - AI Architect & Cyber Security Specialist</title>
+    <meta name="description" content="Official website of ASIF GK (ASIFGKBD.com) - Creator of JARVIS AI, Autonomous Systems, Cyber Security Researcher, and Enterprise ISP Architect in Bangladesh.">
+    <meta name="keywords" content="ASIF GK, ASIFGKBD, ASIFGKBD.com, JARVIS AI, Bangladesh AI Developer, Cyber Security Bangladesh, ISP Master, Ethical Hacking">
+    <meta name="author" content="ASIF GK">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="ASIF GK | ASIFGKBD.com - AI Architect & Cyber Security Specialist">
+    <meta property="og:description" content="Creator of JARVIS Autonomous AI, Neural OS, and High-Security Systems in Bangladesh.">
+    <meta property="og:image" content="assets/logo_badge.jpg">
+    <meta property="og:url" content="https://asifgkbd.com">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/logo_badge.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cyber Particles & Background Matrix Canvas -->
+    <canvas id="cyberCanvas"></canvas>
+    <div class="cyber-scanline"></div>
+    <div class="ambient-glow cyan-glow"></div>
+    <div class="ambient-glow amber-glow"></div>
+
+    <!-- Top Telemetry Status Ticker -->
+    <div class="top-status-bar" id="topStatusBar">
+        <div class="status-content">
+            <span class="pulse-dot"></span>
+            <span class="status-item"><strong class="highlight">DOMAIN:</strong> ASIFGKBD.COM</span>
+            <span class="status-sep">|</span>
+            <span class="status-item"><strong class="highlight">LOCATION:</strong> DHAKA, BANGLADESH 🇧🇩</span>
+            <span class="status-sep">|</span>
+            <span class="status-item"><strong class="highlight">SYSTEM:</strong> JARVIS NEURAL OS ACTIVE</span>
+            <span class="status-sep">|</span>
+            <span class="status-item"><strong class="highlight">BDIX STATUS:</strong> OPTIMIZED (2ms)</span>
+            <span class="status-sep">|</span>
+            <span class="status-item"><strong class="highlight">DEFENSE:</strong> 100% WATCHDOG GUARDED</span>
+        </div>
+        <div class="ticker-actions">
+            <button id="sfxToggleBtn" class="mini-btn" title="Toggle Cyber Audio SFX">
+                <i class="fa-solid fa-volume-high"></i> SFX: <span id="sfxStatus">ON</span>
+            </button>
+            <button id="langToggleBtn" class="mini-btn lang-btn" title="Switch Language">
+                <i class="fa-solid fa-language"></i> <span id="currentLang">বাংলা</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Futuristic Header / Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo" id="brandLogo">
+                <div class="logo-image-wrapper">
+                    <img src="assets/logo_badge.jpg" alt="ASIF GK Logo" class="brand-badge-img">
+                    <div class="logo-pulse-ring"></div>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">ASIF GK</span>
+                    <span class="brand-domain">ASIFGKBD.COM</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link" data-en="About" data-bn="পরিচিতি"><i class="fa-solid fa-user-astronaut"></i> About</a>
+                <a href="#systems" class="nav-link" data-en="AI & Systems" data-bn="এআই সিস্টেম"><i class="fa-solid fa-microchip"></i> AI & Systems</a>
+                <a href="#cyber" class="nav-link" data-en="Cyber Security" data-bn="সাইবার সিকিউরিটি"><i class="fa-solid fa-shield-halved"></i> Cyber Security</a>
+                <a href="#isp" class="nav-link" data-en="ISP Architecture" data-bn="আইএসপি নেটওয়ার্ক"><i class="fa-solid fa-network-wired"></i> ISP Solutions</a>
+                <a href="#terminal" class="nav-link" data-en="Terminal" data-bn="টার্মিনাল"><i class="fa-solid fa-terminal"></i> Terminal</a>
+                <a href="#estimator" class="nav-link" data-en="Services" data-bn="সার্ভিস সমূহ"><i class="fa-solid fa-calculator"></i> Services</a>
+                <a href="#contact" class="nav-link" data-en="Contact" data-bn="যোগাযোগ"><i class="fa-solid fa-envelope"></i> Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#terminal" class="btn-primary-neon" id="navTerminalBtn">
+                    <i class="fa-solid fa-terminal"></i> <span data-en="Cyber Terminal" data-bn="সাইবার শেল">Cyber Terminal</span>
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-ring"></span>
+                        <span class="badge-text" data-en="⚡ BANGLADESH'S PREMIER AI & CYBER ARCHITECT" data-bn="⚡ বাংলাদেশের শীর্ষস্থানীয় এআই এবং সাইবার আর্কিটেক্ট">⚡ BANGLADESH'S PREMIER AI & CYBER ARCHITECT</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="title-sub" data-en="CREATOR & ENGINEER" data-bn="স্রষ্টা ও সফটওয়্যার স্থপতি">CREATOR & ENGINEER</span>
+                        <span class="title-main glowing-gradient-text">ASIF GK</span>
+                    </h1>
+
+                    <p class="hero-tagline" data-en="Architect of JARVIS Autonomous AI, Aether OS, Zero-Trust Cyber Security & ISP Fiber Routing Infrastructures in Bangladesh." data-bn="জার্ভিস অটোনোমাস এআই, ইথার ওএস, জিরো-ট্রাস্ট সাইবার নিরাপত্তা এবং বাংলাদেশের আইএসপি কোর রাউটিং সিস্টেমের নির্মাতা।">
+                        Architect of JARVIS Autonomous AI, Aether OS, Zero-Trust Cyber Security & ISP Fiber Routing Infrastructures in Bangladesh.
+                    </p>
+
+                    <!-- Interactive Live Counters -->
+                    <div class="hero-telemetry-grid">
+                        <div class="telemetry-card">
+                            <div class="telemetry-icon"><i class="fa-solid fa-brain"></i></div>
+                            <div class="telemetry-num" id="aiNetsCount">16+</div>
+                            <div class="telemetry-label" data-en="Neural AI Sub-Brains" data-bn="নিউরাল এআই সাব-ব্রেন">Neural AI Sub-Brains</div>
+                        </div>
+                        <div class="telemetry-card">
+                            <div class="telemetry-icon"><i class="fa-solid fa-shield-virus"></i></div>
+                            <div class="telemetry-num" id="cyberDefCount">100%</div>
+                            <div class="telemetry-label" data-en="Cyber Shield Defense" data-bn="সাইবার ডিফেন্স শিল্ড">Cyber Shield Defense</div>
+                        </div>
+                        <div class="telemetry-card">
+                            <div class="telemetry-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                            <div class="telemetry-num">10G+</div>
+                            <div class="telemetry-label" data-en="BDIX ISP Architecture" data-bn="বিডিআইএক্স আইএসপি নেটওয়ার্ক">BDIX ISP Architecture</div>
+                        </div>
+                        <div class="telemetry-card">
+                            <div class="telemetry-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                            <div class="telemetry-num">50+</div>
+                            <div class="telemetry-label" data-en="Proprietary Tools & Bots" data-bn="তৈরিকৃত টুলস ও বটস">Proprietary Tools & Bots</div>
+                        </div>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="hero-buttons">
+                        <a href="#systems" class="cyber-button primary">
+                            <span class="btn-cutout"></span>
+                            <i class="fa-solid fa-microchip"></i>
+                            <span data-en="Explore AI Ecosystem" data-bn="এআই সিস্টেম দেখুন">Explore AI Ecosystem</span>
+                        </a>
+                        <a href="#terminal" class="cyber-button secondary">
+                            <span class="btn-cutout"></span>
+                            <i class="fa-solid fa-terminal"></i>
+                            <span data-en="Open Live Shell" data-bn="লাইভ শেল খুলুন">Open Live Shell</span>
+                        </a>
+                        <a href="#contact" class="cyber-button outline">
+                            <span class="btn-cutout"></span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span data-en="Initiate Contact" data-bn="যোগাযোগ করুন">Initiate Contact</span>
+                        </a>
+                    </div>
+
+                    <!-- Domain Verification Stamp -->
+                    <div class="domain-stamp">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>OFFICIAL SECURE DOMAIN: <strong>ASIFGKBD.COM</strong></span>
+                        <span class="ssl-badge"><i class="fa-solid fa-lock"></i> SSL ENCRYPTED</span>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Showcase -->
+                <div class="hero-visual">
+                    <div class="hologram-frame">
+                        <div class="corner corner-tl"></div>
+                        <div class="corner corner-tr"></div>
+                        <div class="corner corner-bl"></div>
+                        <div class="corner corner-br"></div>
+                        
+                        <div class="hero-image-container">
+                            <img src="assets/hero_banner.jpg" alt="JARVIS AI Cyber Core Visual" class="hero-banner-img">
+                            <div class="hud-overlay">
+                                <div class="hud-status-line">JARVIS AUTONOMOUS CORE // SYSTEM READY</div>
+                                <div class="hud-reticle"></div>
+                                <div class="hud-graph">
+                                    <span style="height: 45%;"></span>
+                                    <span style="height: 75%;"></span>
+                                    <span style="height: 90%;"></span>
+                                    <span style="height: 60%;"></span>
+                                    <span style="height: 85%;"></span>
+                                    <span style="height: 100%;"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hud-panel-footer">
+                            <div class="hud-chip"><i class="fa-solid fa-bolt"></i> LOW LATENCY</div>
+                            <div class="hud-chip"><i class="fa-solid fa-eye"></i> MULTIMODAL VISION</div>
+                            <div class="hud-chip"><i class="fa-solid fa-wave-square"></i> REALTIME SPEECH</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Interactive Cyber Terminal / Shell Section -->
+        <section class="terminal-section" id="terminal">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-tag"><i class="fa-solid fa-terminal"></i> INTERACTIVE SHELL</div>
+                    <h2 class="section-title" data-en="ASIFGKBD Cyber Console" data-bn="সাইবার কমান্ড কনসোল">ASIFGKBD Cyber Console</h2>
+                    <p class="section-desc" data-en="Type commands below or click the quick commands to explore ASIF GK's live system architecture." data-bn="সরাসরি কমান্ড লিখে বা নিচের কুইক বাটনে ক্লিক করে সিস্টেমের অভ্যন্তরীণ বিস্তারিত জানুন।">
+                        Type commands below or click the quick commands to explore ASIF GK's live system architecture.
+                    </p>
+                </div>
+
+                <div class="terminal-box">
+                    <div class="terminal-titlebar">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="terminal-title"><i class="fa-solid fa-terminal"></i> root@asifgkbd.com: ~/jarvis-core</div>
+                        <div class="terminal-actions">
+                            <button id="clearTermBtn" class="term-action-btn" title="Clear Console"><i class="fa-solid fa-eraser"></i> Clear</button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Command Badges -->
+                    <div class="quick-commands">
+                        <span class="qc-label">Quick Commands:</span>
+                        <button class="qc-btn" data-cmd="help">help</button>
+                        <button class="qc-btn" data-cmd="about">about</button>
+                        <button class="qc-btn" data-cmd="jarvis">jarvis</button>
+                        <button class="qc-cmd" data-cmd="cyber">cyber</button>
+                        <button class="qc-btn" data-cmd="isp">isp</button>
+                        <button class="qc-btn" data-cmd="skills">skills</button>
+                        <button class="qc-btn" data-cmd="contact">contact</button>
+                        <button class="qc-btn" data-cmd="matrix">matrix</button>
+                        <button class="qc-btn" data-cmd="bdix">bdix</button>
+                    </div>
+
+                    <div class="terminal-body" id="terminalBody">
+                        <div class="terminal-line system-welcome">
+                            <span class="cyan">[SYSTEM]</span> Welcome to ASIFGKBD.COM Interactive Terminal (v2.6)
+                        </div>
+                        <div class="terminal-line system-welcome">
+                            <span class="green">[READY]</span> All neural cores initialized. Type <span class="highlight-cmd">'help'</span> to view available operations.
+                        </div>
+                    </div>
+
+                    <div class="terminal-input-row">
+                        <span class="terminal-prompt">asifgk@bd:~$</span>
+                        <input type="text" id="terminalInput" placeholder="Type a command (e.g., 'help', 'jarvis', 'about')..." autocomplete="off" spellcheck="false">
+                        <button id="termSendBtn" class="term-send-btn"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About ASIF GK Section -->
+        <section class="about-section" id="about">
+            <div class="section-container">
+                <div class="about-grid">
+                    <div class="about-image-col">
+                        <div class="badge-portrait-card">
+                            <img src="assets/logo_badge.jpg" alt="ASIF GK Emblem" class="about-avatar">
+                            <div class="portrait-glow"></div>
+                            <div class="portrait-meta">
+                                <h3>ASIF GK</h3>
+                                <p>Lead Architect // ASIFGKBD.com</p>
+                                <div class="meta-tags">
+                                    <span>AI Developer</span>
+                                    <span>Cyber Specialist</span>
+                                    <span>ISP Engineer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bio-spec-box">
+                            <div class="spec-row">
+                                <span class="spec-key"><i class="fa-solid fa-location-dot"></i> Base:</span>
+                                <span class="spec-val">Dhaka, Bangladesh</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key"><i class="fa-solid fa-fingerprint"></i> Domain:</span>
+                                <span class="spec-val">ASIFGKBD.com</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key"><i class="fa-solid fa-shield"></i> Security Clearance:</span>
+                                <span class="spec-val">Level-9 (Master Watchdog)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key"><i class="fa-solid fa-code"></i> Primary Stack:</span>
+                                <span class="spec-val">Python, C++, Rust, JS, MikroTik</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-text-col">
+                        <div class="section-tag"><i class="fa-solid fa-id-card"></i> BIOGRAPHY & PHILOSOPHY</div>
+                        <h2 class="section-title" data-en="Engineering Autonomous AI & Fortified Systems" data-bn="অটোনোমাস এআই এবং সুরক্ষিত সিস্টেম স্থাপত্য">Engineering Autonomous AI & Fortified Systems</h2>
+                        
+                        <p class="about-p" data-en="I am ASIF GK, a visionary software engineer, artificial intelligence researcher, and cyber security architect based in Bangladesh. My primary mission is creating hyper-intelligent, autonomous computing systems that operate without cloud dependency, while fortifying digital infrastructure against next-gen cyber threats." data-bn="আমি আসিফ জিকে (ASIF GK), বাংলাদেশের একজন উদ্ভাবনী সফটওয়্যার ইঞ্জিনিয়ার, আর্টিফিশিয়াল ইন্টেলিজেন্স গবেষক এবং সাইবার সিকিউরিটি স্পেশালিস্ট। আমার মূল লক্ষ্য ক্লাউড নির্ভরতা মুক্ত শক্তিশালী কৃত্রিম বুদ্ধিমত্তা এবং সাইবার হামলা প্রতিরোধী স্বয়ংসম্পূর্ণ টেকনোলজি তৈরি করা।">
+                            I am ASIF GK, a visionary software engineer, artificial intelligence researcher, and cyber security architect based in Bangladesh. My primary mission is creating hyper-intelligent, autonomous computing systems that operate without cloud dependency, while fortifying digital infrastructure against next-gen cyber threats.
+                        </p>
+
+                        <p class="about-p" data-en="I engineered JARVIS AI — a modular autonomous desktop neural intelligence with local offline reasoning, Bengali and English vocal recognition, 3D holographic telemetry, automated web automation, and operating system control." data-bn="আমার তৈরি 'জার্ভিস এআই' (JARVIS AI) একটি সম্পূর্ণ অটোনোমাস মাল্টি-মডেল সিস্টেম যা অফলাইনে গভীর চিন্তা করতে পারে, বাংলা ও ইংরেজি উভয় ভাষায় কথা বলে, ওয়েব ও ডেস্কটপ সম্পূর্ণ অটোমেট করতে সক্ষম।">
+                            I engineered JARVIS AI — a modular autonomous desktop neural intelligence with local offline reasoning, Bengali and English vocal recognition, 3D holographic telemetry, automated web automation, and operating system control.
+                        </p>
+
+                        <!-- Highlights List -->
+                        <div class="highlights-grid">
+                            <div class="hl-item">
+                                <div class="hl-icon"><i class="fa-solid fa-robot"></i></div>
+                                <div class="hl-info">
+                                    <h4 data-en="Offline AI Brains" data-bn="অফলাইন এআই ব্রেন">Offline AI Brains</h4>
+                                    <p data-en="Zero API quota limitation; locally trained models for continuous operation." data-bn="কোনো এপিআই সীমা নেই; লোকাল প্রশিক্ষিত মডেলের মাধ্যমে নিরবচ্ছিন্ন কার্যক্ষমতা।">Zero API quota limitation; locally trained models for continuous operation.</p>
+                                </div>
+                            </div>
+                            <div class="hl-item">
+                                <div class="hl-icon"><i class="fa-solid fa-bug-slash"></i></div>
+                                <div class="hl-info">
+                                    <h4 data-en="Offensive & Defensive Cyber" data-bn="সাইবার সিকিউরিটি">Offensive & Defensive Cyber</h4>
+                                    <p data-en="Pen-testing, hardware hacking (Flipper Zero integration), and behavioral watchdog." data-bn="পেনিট্রেশন টেস্টিং, হার্ডওয়্যার হ্যাকিং এবং বিহেভিয়ারাল সিস্টেম প্রটেকশন।">Pen-testing, hardware hacking (Flipper Zero integration), and behavioral watchdog.</p>
+                                </div>
+                            </div>
+                            <div class="hl-item">
+                                <div class="hl-icon"><i class="fa-solid fa-server"></i></div>
+                                <div class="hl-info">
+                                    <h4 data-en="ISP Master Blueprints" data-bn="আইএসপি মাস্টার ব্লুপ্রিন্ট">ISP Master Blueprints</h4>
+                                    <p data-en="Carrier-grade BDIX routing, MikroTik BGP configurations, low latency peering." data-bn="উচ্চগতির বিডিআইএক্স রাউটিং, মাইক্রোটিক বিজিপি কনফিগারেশন এবং ব্যান্ডউইথ ম্যানেজমেন্ট।">Carrier-grade BDIX routing, MikroTik BGP configurations, low latency peering.</p>
+                                </div>
+                            </div>
+                            <div class="hl-item">
+                                <div class="hl-icon"><i class="fa-solid fa-language"></i></div>
+                                <div class="hl-info">
+                                    <h4 data-en="Bangla & English NLU" data-bn="বাংলা ও ইংরেজি ভাষা বোধগম্যতা">Bangla & English NLU</h4>
+                                    <p data-en="Deep natural language understanding customized for the Bangladeshi ecosystem." data-bn="বাংলাদেশের বাস্তবতায় উপযুক্ত ডিপ ন্যাচারাল ল্যাঙ্গুয়েজ আন্ডারস্ট্যান্ডিং।">Deep natural language understanding customized for the Bangladeshi ecosystem.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem & Technologies Section -->
+        <section class="systems-section" id="systems">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-tag"><i class="fa-solid fa-layer-group"></i> ECOSYSTEM ARCHITECTURE</div>
+                    <h2 class="section-title" data-en="Flagship Technologies Built by ASIF GK" data-bn="আসিফ জিকে নির্মিত শীর্ষ প্রযুক্তি ও সমাধান">Flagship Technologies Built by ASIF GK</h2>
+                    <p class="section-desc" data-en="Production-ready architectures deployed across intelligent desktop software, cyber defense, and telecom networks." data-bn="প্রোডাকশন-গ্রেড এআই সিস্টেম, শক্তিশালী সাইবার ডিফেন্স এবং টেলিকম নেটওয়ার্কের বাস্তবায়ন।">
+                        Production-ready architectures deployed across intelligent desktop software, cyber defense, and telecom networks.
+                    </p>
+                </div>
+
+                <div class="systems-grid">
+                    
+                    <!-- System Card 1: JARVIS AI Core -->
+                    <div class="system-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-icon cyan"><i class="fa-solid fa-brain"></i></div>
+                        <div class="card-badge">FLAGSHIP AI</div>
+                        <h3 class="card-title">JARVIS AI Autonomous Core</h3>
+                        <p class="card-desc" data-en="A comprehensive autonomous AI assistant capable of full OS control, voice synthesis in Bengali & English, automated web research, 3D holographic HUD visualizer, and local reasoning." data-bn="সম্পূর্ণ ওএস নিয়ন্ত্রণ, বাংলা ও ইংরেজি ভয়েস সিন্থেসিস, ইন্টারনেট রিসার্চ এবং থ্রিডি হ্যালো হিউড ডিসপ্লে সমৃদ্ধ স্বয়ংক্রিয় কৃত্রিম বুদ্ধিমত্তা।">
+                            A comprehensive autonomous AI assistant capable of full OS control, voice synthesis in Bengali & English, automated web research, 3D holographic HUD visualizer, and local reasoning.
+                        </p>
+                        <ul class="card-features">
+                            <li><i class="fa-solid fa-check"></i> Multimodal Offline Reasoning</li>
+                            <li><i class="fa-solid fa-check"></i> Windows Automation & App Control</li>
+                            <li><i class="fa-solid fa-check"></i> Bengali Speech & Voice Control</li>
+                            <li><i class="fa-solid fa-check"></i> Infinite Tab Internet Learner</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">WinAPI</span>
+                        </div>
+                    </div>
+
+                    <!-- System Card 2: Cyber Watchdog -->
+                    <div class="system-card" id="cyber" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-icon red"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="card-badge danger">CYBER SHIELD</div>
+                        <h3 class="card-title">Cyber Core Watchdog & Arsenal</h3>
+                        <p class="card-desc" data-en="Autonomous security watchdog that monitors malicious processes, handles automated malware neutralization, integrity scanning, and provides a red-team testing suite including Flipper Zero protocol integration." data-bn="রিয়েল-টাইম ক্ষতিকারক প্রক্রিয়া পর্যবেক্ষণ, ম্যালওয়্যার প্রতিহতকরণ এবং ফ্লিপার জিরো আরএফআইডি/সাব-জিএইচজেড প্রটোকলসহ রেড-টিম পেনিট্রেশন টেস্টিং টুল।">
+                            Autonomous security watchdog that monitors malicious processes, handles automated malware neutralization, integrity scanning, and provides a red-team testing suite including Flipper Zero protocol integration.
+                        </p>
+                        <ul class="card-features">
+                            <li><i class="fa-solid fa-check"></i> Process & Network Watchdog</li>
+                            <li><i class="fa-solid fa-check"></i> Flipper Zero Sub-GHz & RFID Tools</li>
+                            <li><i class="fa-solid fa-check"></i> Zero-Day Exploit Defense</li>
+                            <li><i class="fa-solid fa-check"></i> Behavioral Anomaly Detection</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PowerShell</span>
+                            <span class="tech-tag">Sub-GHz RF</span>
+                        </div>
+                    </div>
+
+                    <!-- System Card 3: ISP Master -->
+                    <div class="system-card" id="isp" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-icon amber"><i class="fa-solid fa-network-wired"></i></div>
+                        <div class="card-badge warning">TELECOM & ISP</div>
+                        <h3 class="card-title">ISP Core & BDIX Master Architecture</h3>
+                        <p class="card-desc" data-en="Complete enterprise blueprints for Internet Service Providers in Bangladesh. Features multi-homed BGP routing, BDIX cache acceleration, automated bandwidth throttling, and fiber failover." data-bn="বাংলাদেশের ইন্টারনেট সার্ভিস প্রোভাইডারদের জন্য সম্পূর্ণ ব্লুপ্রিন্ট। মাল্টি-হোমড বিজিপি রাউটিং, বিডিআইএক্স ক্যাশ এক্সিলারেশন এবং ফাইবার ফেইলওভার সিস্টেম।">
+                            Complete enterprise blueprints for Internet Service Providers in Bangladesh. Features multi-homed BGP routing, BDIX cache acceleration, automated bandwidth throttling, and fiber failover.
+                        </p>
+                        <ul class="card-features">
+                            <li><i class="fa-solid fa-check"></i> MikroTik CCR & Cloud Core Setup</li>
+                            <li><i class="fa-solid fa-check"></i> BDIX Peering & Routing Optimization</li>
+                            <li><i class="fa-solid fa-check"></i> Auto Radius Billing & Throttling</li>
+                            <li><i class="fa-solid fa-check"></i> DDoS Mitigation at Border Gateways</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="tech-tag">MikroTik RouterOS</span>
+                            <span class="tech-tag">BGP</span>
+                            <span class="tech-tag">Radius</span>
+                            <span class="tech-tag">BDIX</span>
+                        </div>
+                    </div>
+
+                    <!-- System Card 4: Aether OS -->
+                    <div class="system-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-icon purple"><i class="fa-solid fa-atom"></i></div>
+                        <div class="card-badge">NEXT-GEN UI</div>
+                        <h3 class="card-title">Aether OS Sci-Fi HUD Controller</h3>
+                        <p class="card-desc" data-en="A futuristic Iron Man-inspired desktop graphical user interface with real-time biometric telemetry, gesture navigation, voice response, and multi-display telemetry synchronization." data-bn="আয়রন ম্যান অনুপ্রাণিত ফিউচারিস্টিক গ্রাফিক্যাল ইন্টারফেস। বায়োমেট্রিক টেলিমেট্রি, অঙ্গভঙ্গি নিয়ন্ত্রণ এবং রিয়েল-টাইম হার্ডওয়্যার মনিটরিং সমৃদ্ধ।">
+                            A futuristic Iron Man-inspired desktop graphical user interface with real-time biometric telemetry, gesture navigation, voice response, and multi-display telemetry synchronization.
+                        </p>
+                        <ul class="card-features">
+                            <li><i class="fa-solid fa-check"></i> Holographic Sci-Fi HUD Aesthetics</li>
+                            <li><i class="fa-solid fa-check"></i> Hand Motion & Gesture Teleport</li>
+                            <li><i class="fa-solid fa-check"></i> Ultra-Low CPU Memory Footprint</li>
+                            <li><i class="fa-solid fa-check"></i> Ambient Audio & Voice FX Engine</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="tech-tag">HTML5/Canvas</span>
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">WebSockets</span>
+                            <span class="tech-tag">OpenCV</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skill Radar & Matrix -->
+        <section class="skills-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-tag"><i class="fa-solid fa-sliders"></i> PROFICIENCY METRICS</div>
+                    <h2 class="section-title" data-en="Technical Competence Matrix" data-bn="প্রযুক্তিগত দক্ষতা ও পারদর্শিতা">Technical Competence Matrix</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-meter-box">
+                        <div class="skill-info">
+                            <span class="skill-name"><i class="fa-brands fa-python"></i> Python & AI Agent Engineering</span>
+                            <span class="skill-pct">98%</span>
+                        </div>
+                        <div class="meter-bar"><div class="meter-fill" style="width: 98%;"></div></div>
+                    </div>
+
+                    <div class="skill-meter-box">
+                        <div class="skill-info">
+                            <span class="skill-name"><i class="fa-solid fa-shield-virus"></i> Cyber Defense & Ethical Pen-Testing</span>
+                            <span class="skill-pct">95%</span>
+                        </div>
+                        <div class="meter-bar"><div class="meter-fill" style="width: 95%;"></div></div>
+                    </div>
+
+                    <div class="skill-meter-box">
+                        <div class="skill-info">
+                            <span class="skill-name"><i class="fa-solid fa-server"></i> MikroTik BGP & ISP Infrastructure</span>
+                            <span class="skill-pct">96%</span>
+                        </div>
+                        <div class="meter-bar"><div class="meter-fill" style="width: 96%;"></div></div>
+                    </div>
+
+                    <div class="skill-meter-box">
+                        <div class="skill-info">
+                            <span class="skill-name"><i class="fa-solid fa-laptop-code"></i> Full-Stack Web & System Architecture</span>
+                            <span class="skill-pct">92%</span>
+                        </div>
+                        <div class="meter-bar"><div class="meter-fill" style="width: 92%;"></div></div>
+                    </div>
+
+                    <div class="skill-meter-box">
+                        <div class="skill-info">
+                            <span class="skill-name"><i class="fa-solid fa-microchip"></i> Windows Kernel & Low-Level API Hooking</span>
+                            <span class="skill-pct">90%</span>
+                        </div>
+                        <div class="meter-bar"><div class="meter-fill" style="width: 90%;"></div></div>
+                    </div>
+
+                    <div class="skill-meter-box">
+                        <div class="skill-info">
+                            <span class="skill-name"><i class="fa-solid fa-language"></i> Bengali NLP & Voice Synthesis</span>
+                            <span class="skill-pct">97%</span>
+                        </div>
+                        <div class="meter-bar"><div class="meter-fill" style="width: 97%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Service Estimator & Project Calculator -->
+        <section class="estimator-section" id="estimator">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-tag"><i class="fa-solid fa-calculator"></i> INSTANT PROJECT ESTIMATOR</div>
+                    <h2 class="section-title" data-en="Calculate Your Project Solution" data-bn="প্রজেক্ট ক্যালকুলেটর ও মূল্য নির্ধারণ">Calculate Your Project Solution</h2>
+                    <p class="section-desc" data-en="Select the architectural components you need to build custom software, AI bots, or enterprise networks with ASIF GK." data-bn="আপনার প্রয়োজনীয় সার্ভিস ও অ্যাড-অন সিলেক্ট করে তাৎক্ষণিক খরচ ও সময়সীমার হিসাব পান।">
+                        Select the architectural components you need to build custom software, AI bots, or enterprise networks with ASIF GK.
+                    </p>
+                </div>
+
+                <div class="estimator-card">
+                    <div class="estimator-inputs">
+                        <div class="est-group">
+                            <label><i class="fa-solid fa-cube"></i> Select Core Tier:</label>
+                            <div class="service-select-grid">
+                                <div class="svc-option selected" data-value="ai" data-price="450" data-days="10">
+                                    <div class="svc-icon"><i class="fa-solid fa-robot"></i></div>
+                                    <div class="svc-title">Autonomous AI Bot / Agent</div>
+                                    <div class="svc-desc">Custom LLM, voice control, automated workflow execution</div>
+                                    <div class="svc-price">From $450</div>
+                                </div>
+                                <div class="svc-option" data-value="cyber" data-price="550" data-days="14">
+                                    <div class="svc-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <div class="svc-title">Cyber Security & Pen-Test</div>
+                                    <div class="svc-desc">Vulnerability audit, intrusion watchdog, hardening</div>
+                                    <div class="svc-price">From $550</div>
+                                </div>
+                                <div class="svc-option" data-value="isp" data-price="350" data-days="7">
+                                    <div class="svc-icon"><i class="fa-solid fa-network-wired"></i></div>
+                                    <div class="svc-title">ISP Core & BDIX Blueprint</div>
+                                    <div class="svc-desc">MikroTik BGP, Radius billing, cache routing setup</div>
+                                    <div class="svc-price">From $350</div>
+                                </div>
+                                <div class="svc-option" data-value="fullstack" data-price="400" data-days="12">
+                                    <div class="svc-icon"><i class="fa-solid fa-globe"></i></div>
+                                    <div class="svc-title">Premium Web App & Platform</div>
+                                    <div class="svc-desc">High-speed backend, responsive futuristic UI, APIs</div>
+                                    <div class="svc-price">From $400</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="est-group">
+                            <label><i class="fa-solid fa-puzzle-piece"></i> Optional Power Add-Ons:</label>
+                            <div class="addon-grid">
+                                <label class="addon-checkbox">
+                                    <input type="checkbox" class="addon-input" data-price="120" data-days="2" checked>
+                                    <span class="chk-box"><i class="fa-solid fa-check"></i></span>
+                                    <span class="addon-text">Bengali & English Voice Synthesizer (+ $120)</span>
+                                </label>
+                                <label class="addon-checkbox">
+                                    <input type="checkbox" class="addon-input" data-price="150" data-days="3">
+                                    <span class="chk-box"><i class="fa-solid fa-check"></i></span>
+                                    <span class="addon-text">24/7 Threat Watchdog & Auto-Healing (+ $150)</span>
+                                </label>
+                                <label class="addon-checkbox">
+                                    <input type="checkbox" class="addon-input" data-price="100" data-days="2">
+                                    <span class="chk-box"><i class="fa-solid fa-check"></i></span>
+                                    <span class="addon-text">BDIX Ultra-Low Latency Routing Tuning (+ $100)</span>
+                                </label>
+                                <label class="addon-checkbox">
+                                    <input type="checkbox" class="addon-input" data-price="180" data-days="4" checked>
+                                    <span class="chk-box"><i class="fa-solid fa-check"></i></span>
+                                    <span class="addon-text">3D Holographic / Sci-Fi HUD Dashboard (+ $180)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="estimator-summary">
+                        <div class="summary-box">
+                            <div class="sum-tag">SYSTEM ESTIMATE</div>
+                            <div class="sum-total-price">
+                                <span class="currency">$</span>
+                                <span id="estTotalPrice">750</span>
+                                <span class="usd-tag">USD</span>
+                            </div>
+                            <div class="sum-bdt">
+                                ≈ <span id="estBdtPrice">90,000</span> BDT
+                            </div>
+                            <div class="sum-meta">
+                                <div><i class="fa-solid fa-calendar-check"></i> Estimated Timeline: <strong id="estTimeline">16 Days</strong></div>
+                                <div><i class="fa-solid fa-certificate"></i> Architecture Guarantee: <strong>100% Guaranteed</strong></div>
+                                <div><i class="fa-solid fa-headset"></i> Support: <strong>Priority VIP Dispatch</strong></div>
+                            </div>
+
+                            <div class="estimator-actions">
+                                <a id="orderWhatsAppBtn" href="#" target="_blank" class="cyber-button primary full-width">
+                                    <i class="fa-brands fa-whatsapp"></i> Order Directly via WhatsApp
+                                </a>
+                                <a id="orderEmailBtn" href="#" class="cyber-button outline full-width">
+                                    <i class="fa-solid fa-envelope"></i> Send Order Specification via Email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Direct Contact & Security Matrix -->
+        <section class="contact-section" id="contact">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-tag"><i class="fa-solid fa-tower-broadcast"></i> DIRECT COMMS CHANNELS</div>
+                    <h2 class="section-title" data-en="Connect With ASIF GK" data-bn="আসিফ জিকের সাথে যোগাযোগ">Connect With ASIF GK</h2>
+                    <p class="section-desc" data-en="Available for high-impact AI systems, enterprise ISP consulting, penetration testing, and bespoke engineering contracts." data-bn="উন্নত এআই সিস্টেম, আইএসপি পরামর্শ, সাইবার সিকিউরিটি অডিট এবং স্পেশাল প্রজেক্টের জন্য যোগাযোগ করুন।">
+                        Available for high-impact AI systems, enterprise ISP consulting, penetration testing, and bespoke engineering contracts.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Cards -->
+                    <div class="contact-info-col">
+                        
+                        <div class="contact-channel-card">
+                            <div class="channel-icon cyan"><i class="fa-solid fa-globe"></i></div>
+                            <div class="channel-info">
+                                <h4>Official Portal Domain</h4>
+                                <a href="https://asifgkbd.com" class="channel-link">ASIFGKBD.COM</a>
+                                <span class="channel-sub">Verified & Canonical Domain</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-channel-card">
+                            <div class="channel-icon green"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div class="channel-info">
+                                <h4>WhatsApp Direct Hot-Line</h4>
+                                <a href="https://wa.me/8801773860372?text=Hello%20ASIF%20GK,%20I%20am%20reaching%20out%20via%20ASIFGKBD.com" target="_blank" class="channel-link">+880 1773-860372</a>
+                                <span class="channel-sub">Verified WhatsApp Hotline // Instant Response</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-channel-card">
+                            <div class="channel-icon amber"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="channel-info">
+                                <h4>Direct Gmail</h4>
+                                <a href="mailto:asifgk.hacker@gmail.com" class="channel-link">asifgk.hacker@gmail.com</a>
+                                <span class="channel-sub">Official Direct & Encrypted Inquiries</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-channel-card">
+                            <div class="channel-icon purple"><i class="fa-brands fa-github"></i></div>
+                            <div class="channel-info">
+                                <h4>GitHub Engineering Vault</h4>
+                                <a href="https://github.com/mdaminulislamasif" target="_blank" class="channel-link">github.com/mdaminulislamasif</a>
+                                <span class="channel-sub">Open-source repositories & JARVIS modules</span>
+                            </div>
+                        </div>
+
+                        <div class="security-fingerprint-box">
+                            <div class="fp-title"><i class="fa-solid fa-fingerprint"></i> SECURE DIGITAL FINGERPRINT</div>
+                            <code>ASIFGK-BD-KEY: 4F9B:77C1:982A:EE31:00BD:2026:OK</code>
+                        </div>
+
+                    </div>
+
+                    <!-- Direct Transmission Form -->
+                    <div class="contact-form-col">
+                        <div class="form-wrapper">
+                            <div class="form-titlebar">
+                                <span class="form-title-text"><i class="fa-solid fa-satellite-dish"></i> ENCRYPTED DISPATCH TERMINAL</span>
+                                <span class="live-status">READY</span>
+                            </div>
+
+                            <form id="contactForm" class="cyber-form">
+                                <div class="form-group">
+                                    <label for="senderName"><i class="fa-solid fa-user"></i> Full Name / Organization *</label>
+                                    <input type="text" id="senderName" required placeholder="e.g. John Doe / Tech Corp">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="senderEmail"><i class="fa-solid fa-envelope"></i> Email Address *</label>
+                                    <input type="email" id="senderEmail" required placeholder="e.g. name@company.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="projectDomain"><i class="fa-solid fa-layer-group"></i> Project Domain</label>
+                                    <select id="projectDomain">
+                                        <option value="JARVIS AI Autonomous Bot">JARVIS AI Autonomous Bot</option>
+                                        <option value="Cyber Security & Watchdog Defense">Cyber Security & Watchdog Defense</option>
+                                        <option value="Enterprise ISP & BDIX Networking">Enterprise ISP & BDIX Networking</option>
+                                        <option value="Aether OS & Custom Sci-Fi UI">Aether OS & Custom Sci-Fi UI</option>
+                                        <option value="Consultancy & General Inquiry">Consultancy & General Inquiry</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="senderMsg"><i class="fa-solid fa-comment-dots"></i> Project Brief / Transmission Message *</label>
+                                    <textarea id="senderMsg" rows="5" required placeholder="Describe your project, timeline, and architectural requirements..."></textarea>
+                                </div>
+
+                                <button type="submit" class="cyber-button primary full-width" id="formSubmitBtn">
+                                    <i class="fa-solid fa-paper-plane"></i> Transmit Encrypted Message
+                                </button>
+                                
+                                <div id="formFeedback" class="form-feedback hidden"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Futuristic Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="assets/logo_badge.jpg" alt="ASIF GK Logo" class="footer-badge-img">
+                    <div class="footer-brand-text">
+                        <span class="f-title">ASIF GK</span>
+                        <span class="f-domain">ASIFGKBD.COM</span>
+                    </div>
+                </div>
+                <p class="footer-desc">
+                    Official cyber portal of ASIF GK. Engineered with advanced neural intelligence, impenetrable defenses, and blazing-fast connectivity for Bangladesh & the world.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://github.com/mdaminulislamasif" target="_blank" title="GitHub (mdaminulislamasif)"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://wa.me/8801773860372" target="_blank" title="WhatsApp (+8801773860372)"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:asifgk.hacker@gmail.com" title="Email (asifgk.hacker@gmail.com)"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#hero">Overview</a></li>
+                    <li><a href="#about">About ASIF GK</a></li>
+                    <li><a href="#systems">JARVIS AI Ecosystem</a></li>
+                    <li><a href="#cyber">Cyber Arsenal</a></li>
+                    <li><a href="#isp">ISP Architecture</a></li>
+                    <li><a href="#terminal">Live Terminal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Core Specialties</h4>
+                <ul>
+                    <li><a href="#systems">Autonomous AI Agents</a></li>
+                    <li><a href="#systems">Bengali & English NLU</a></li>
+                    <li><a href="#cyber">Flipper Zero Integration</a></li>
+                    <li><a href="#cyber">Behavioral Watchdog</a></li>
+                    <li><a href="#isp">MikroTik BGP & BDIX</a></li>
+                    <li><a href="#estimator">Instant Pricing</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-telemetry">
+                <h4>System Telemetry</h4>
+                <div class="footer-stat"><span>Server:</span> <strong class="green-text">ONLINE [200 OK]</strong></div>
+                <div class="footer-stat"><span>Gateway:</span> <strong>ASIFGKBD.COM-GATEWAY</strong></div>
+                <div class="footer-stat"><span>Firewall:</span> <strong class="cyan-text">ACTIVE (0 Leaks)</strong></div>
+                <div class="footer-stat"><span>Time:</span> <strong id="liveUtcClock">2026-10-15 19:35</strong></div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="bottom-container">
+                <p>© 2026 <strong>ASIFGKBD.COM</strong>. All Rights Reserved. Engineered by <strong>ASIF GK</strong> in Dhaka, Bangladesh 🇧🇩.</p>
+                <div class="bottom-badges">
+                    <span class="badge-item"><i class="fa-solid fa-shield"></i> ZERO-TRUST</span>
+                    <span class="badge-item"><i class="fa-solid fa-bolt"></i> HIGH-THROUGHPUT</span>
+                    <span class="badge-item"><i class="fa-solid fa-code"></i> PURE CRAFTSMANSHIP</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Return to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom Futuristic Cursor Follower -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -2906,10 +2906,21 @@ main {
     }
 
     .billion-ad-modal .ad-video-container {
-        min-height: 240px;
-        max-height: 38vh;
+        min-height: 280px;
+        max-height: 48vh;
         width: 100%;
         background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .billion-ad-modal .ad-video-container video {
+        max-height: 48vh;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
     }
 
     .billion-ad-modal .ad-display-panel {

@@ -790,6 +790,28 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
     let adCountdownInterval = null;
     let simulatedEarnings = 128450;
 
+    function updateAdaptiveVideos() {
+        const isMobile = window.innerWidth <= 768;
+        const targetSrc = isMobile ? 'assets/promo_video_mobile.mp4' : 'assets/promo_video.mp4';
+        
+        if (billionAdVideo && !billionAdVideo.src.includes(targetSrc)) {
+            const wasPlaying = !billionAdVideo.paused;
+            const curTime = billionAdVideo.currentTime || 0;
+            billionAdVideo.src = targetSrc;
+            billionAdVideo.currentTime = curTime;
+            if (wasPlaying) billionAdVideo.play().catch(() => {});
+        }
+
+        const billboardVideo = document.getElementById('billboardPreviewVideo');
+        if (billboardVideo && !billboardVideo.src.includes(targetSrc)) {
+            billboardVideo.src = targetSrc;
+            billboardVideo.play().catch(() => {});
+        }
+    }
+
+    window.addEventListener('resize', updateAdaptiveVideos);
+    updateAdaptiveVideos();
+
     function openBillionAdModal() {
         if (!billionAdModal) return;
         billionAdModal.classList.add('open');
@@ -799,8 +821,11 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
         playSound('success');
         trackGoogleAdsConversion('1B Pixels Fullscreen Ad View', 'Impression');
 
+        updateAdaptiveVideos();
+
         if (billionAdVideo) {
             billionAdVideo.currentTime = 0;
+            billionAdVideo.volume = 1.0;
             billionAdVideo.muted = true;
             billionAdVideo.play().catch(() => {});
         }

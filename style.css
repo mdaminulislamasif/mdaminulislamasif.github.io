@@ -1553,6 +1553,7 @@ main {
 .channel-icon.green { background: rgba(0, 255, 136, 0.1); color: var(--green); border: 1px solid rgba(0, 255, 136, 0.3); }
 .channel-icon.amber { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(255, 208, 0, 0.3); }
 .channel-icon.purple { background: rgba(157, 78, 221, 0.1); color: var(--purple); border: 1px solid rgba(157, 78, 221, 0.3); }
+.channel-icon.pink { background: rgba(254, 44, 85, 0.12); color: #fe2c55; border: 1px solid rgba(254, 44, 85, 0.35); }
 
 .channel-info h4 {
     font-size: 0.82rem;
@@ -1774,6 +1775,12 @@ main {
     color: #000;
     box-shadow: 0 0 15px var(--cyan-glow);
     transform: translateY(-2px);
+}
+
+.footer-socials a[title*="TikTok"]:hover {
+    background: #fe2c55;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(254, 44, 85, 0.6);
 }
 
 .footer-links h4, .footer-telemetry h4 {

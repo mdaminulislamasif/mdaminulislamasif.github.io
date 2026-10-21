@@ -1554,6 +1554,7 @@ main {
 .channel-icon.amber { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(255, 208, 0, 0.3); }
 .channel-icon.purple { background: rgba(157, 78, 221, 0.1); color: var(--purple); border: 1px solid rgba(157, 78, 221, 0.3); }
 .channel-icon.pink { background: rgba(254, 44, 85, 0.12); color: #fe2c55; border: 1px solid rgba(254, 44, 85, 0.35); }
+.channel-icon.fiverr { background: rgba(29, 191, 115, 0.12); color: #1dbf73; border: 1px solid rgba(29, 191, 115, 0.35); }
 
 .channel-info h4 {
     font-size: 0.82rem;
@@ -1781,6 +1782,35 @@ main {
     background: #fe2c55;
     color: #fff;
     box-shadow: 0 0 15px rgba(254, 44, 85, 0.6);
+}
+
+.footer-socials a[title*="Fiverr"]:hover {
+    background: #1dbf73;
+    color: #000;
+    box-shadow: 0 0 15px rgba(29, 191, 115, 0.6);
+}
+
+.btn-fiverr-neon {
+    background: rgba(29, 191, 115, 0.12);
+    color: #1dbf73;
+    border: 1px solid rgba(29, 191, 115, 0.4);
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: var(--transition-fast);
+}
+
+.btn-fiverr-neon:hover {
+    background: #1dbf73;
+    color: #000;
+    box-shadow: 0 0 15px rgba(29, 191, 115, 0.5);
+    transform: translateY(-2px);
 }
 
 .footer-links h4, .footer-telemetry h4 {
@@ -2580,6 +2610,18 @@ main {
     background: #fe2c55;
     color: #fff;
     box-shadow: 0 0 20px rgba(254, 44, 85, 0.5);
+}
+
+.ad-action-btn.fiverr {
+    background: rgba(29, 191, 115, 0.12);
+    color: #1dbf73;
+    border: 1px solid rgba(29, 191, 115, 0.4);
+}
+
+.ad-action-btn.fiverr:hover {
+    background: #1dbf73;
+    color: #000;
+    box-shadow: 0 0 20px rgba(29, 191, 115, 0.5);
 }
 
 .ad-footer-telemetry {

@@ -406,7 +406,14 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
 <span class="cyan">[SPONSORED SHOWCASE // ASIF GK NEURAL SYSTEMS]</span>
 • Special Deal: 50% Off Autonomous AI Bots & Enterprise ISP Blueprints
 • Verified Sponsor: Google Ads Network (423-666-6699)
-• Type <span class="highlight-cmd">'ad'</span> to view the Fullscreen 1B Pixels Gaming Stream.`
+• Type <span class="highlight-cmd">'ad'</span> to view the Fullscreen 1B Pixels Gaming Stream.`,
+
+        fiverr: `
+<span class="green">[OFFICIAL FIVERR PRO FREELANCE PROFILE]</span>
+• Profile: https://www.fiverr.com/mdaminulislamasif
+• Expertise: Custom JARVIS AI Bots, B2B Leads, Web Scraping & Python Automation
+• Rating: 5.0 ★ Top-Rated Experience // Fast Delivery
+• Orders: Available for Direct Contracts via Fiverr Escrow`
     };
 
     function appendTerminal(lineHtml) {
@@ -752,6 +759,14 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
         mailBtn.addEventListener('click', () => {
             playSound('click');
             trackGoogleAdsConversion('Email Inquiry Click', 'Lead');
+        });
+    });
+
+    // Track Fiverr Profile Visits
+    document.querySelectorAll('a[href*="fiverr.com"]').forEach(fvBtn => {
+        fvBtn.addEventListener('click', () => {
+            playSound('success');
+            trackGoogleAdsConversion('Fiverr Profile Visit', 'FreelanceLead');
         });
     });
 

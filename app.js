@@ -678,6 +678,17 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
         getAudioContext();
     }, { once: true });
 
+    // -------------------------------------------------------------------------
+    // 14. Google AdSense Safe Ingest / Activation
+    // -------------------------------------------------------------------------
+    try {
+        if (window.adsbygoogle) {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+        }
+    } catch (e) {
+        // Ads will render when Google AdSense approves the publisher domain
+    }
+
     console.log("%c ASIF GK %c Official Cyber Portfolio // Architect: ASIF GK ", 
         "background: #00f0ff; color: #000; font-weight: bold; padding: 4px 8px; border-radius: 4px;",
         "background: #0a0e17; color: #ffd000; padding: 4px 8px; border-radius: 4px; font-weight: bold;");

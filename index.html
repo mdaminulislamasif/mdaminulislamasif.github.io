@@ -1086,6 +1086,75 @@
     </button>
 
     <!-- =============================================================
+         JARVIS AUTONOMOUS AI COMPANION (PORTFOLIO NEURAL ASSISTANT)
+         ============================================================= -->
+    <button class="jarvis-ai-floating-trigger" id="jarvisAiTrigger" title="Chat with JARVIS Neural AI Assistant">
+        <span class="jarvis-pulse-ring"></span>
+        <span class="jarvis-pulse-ring delay"></span>
+        <div class="jarvis-orb-inner">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+        <div class="jarvis-orb-badge">
+            <span class="status-dot"></span>
+            <span>JARVIS AI</span>
+        </div>
+    </button>
+
+    <!-- JARVIS AI Chat Window -->
+    <div class="jarvis-chat-modal" id="jarvisChatModal" aria-hidden="true" role="dialog">
+        <div class="jarvis-chat-backdrop" id="jarvisChatBackdrop"></div>
+        <div class="jarvis-chat-window">
+            <div class="jarvis-chat-header">
+                <div class="jarvis-header-info">
+                    <div class="jarvis-avatar">
+                        <i class="fa-solid fa-robot"></i>
+                        <span class="avatar-glow"></span>
+                    </div>
+                    <div>
+                        <div class="jarvis-header-title">JARVIS NEURAL CORE <span class="version-tag">v2.6</span></div>
+                        <div class="jarvis-header-sub">
+                            <span class="pulse-indicator"></span> Autonomous AI Companion for ASIF GK
+                        </div>
+                    </div>
+                </div>
+                <div class="jarvis-header-actions">
+                    <button class="jarvis-hdr-btn" id="jarvisClearBtn" title="Clear Conversation"><i class="fa-solid fa-arrows-rotate"></i></button>
+                    <button class="jarvis-hdr-btn close" id="jarvisCloseBtn" title="Close AI Assistant"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="jarvis-quick-prompts" id="jarvisQuickPrompts">
+                <button class="quick-chip" data-query="Who is ASIF GK?"><i class="fa-solid fa-user-astronaut"></i> Who is ASIF GK?</button>
+                <button class="quick-chip" data-query="How can I hire on Fiverr?"><i class="fa-solid fa-briefcase"></i> Hire on Fiverr</button>
+                <button class="quick-chip" data-query="Tell me about Cyber Security & ISP"><i class="fa-solid fa-shield-halved"></i> Cyber & ISP Setup</button>
+                <button class="quick-chip" data-query="Open 1 Billion Pixels Gaming Ad"><i class="fa-solid fa-fire"></i> 1B Pixels Gaming Ad</button>
+                <button class="quick-chip" data-query="বাংলায় বলুন আপনি কি কি কাজ করেন?"><i class="fa-solid fa-language"></i> বাংলায় পরিচিতি</button>
+            </div>
+
+            <!-- Messages Stream -->
+            <div class="jarvis-chat-body" id="jarvisChatBody">
+                <div class="jarvis-msg ai">
+                    <div class="msg-avatar"><i class="fa-solid fa-robot"></i></div>
+                    <div class="msg-bubble">
+                        <p>Greetings, Operator! I am <strong>JARVIS Neural AI</strong>, the autonomous digital companion of <strong>ASIF GK</strong>.</p>
+                        <p>How may I assist you today? You can ask me in <strong>English</strong> or <strong>বাংলা</strong> about ASIF's custom AI bots, ethical cybersecurity audits, enterprise ISP routing, or direct Fiverr contracts!</p>
+                        <span class="msg-time">Neural OS • Online</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Bar -->
+            <form class="jarvis-chat-input-bar" id="jarvisChatForm">
+                <input type="text" id="jarvisChatInput" placeholder="Ask JARVIS anything (English or বাংলা)..." autocomplete="off" />
+                <button type="submit" id="jarvisSendBtn" title="Send Directive">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- =============================================================
          DEDICATED MOBILE CYBER GAMING APP BOTTOM DOCK
          (Displays exclusively on Phone Browsers)
          ============================================================= -->
@@ -1099,10 +1168,11 @@
             <i class="fa-solid fa-fire"></i>
             <span>1B Ad</span>
         </button>
-        <a href="#systems" class="dock-item" id="dockAiBtn">
-            <i class="fa-solid fa-microchip"></i>
+        <button class="dock-item highlight-dock-ai" id="dockAiBtn">
+            <div class="dock-ai-glow"></div>
+            <i class="fa-solid fa-brain"></i>
             <span>AI Brain</span>
-        </a>
+        </button>
         <a href="#cyber" class="dock-item" id="dockCyberBtn">
             <i class="fa-solid fa-shield-virus"></i>
             <span>Cyber</span>

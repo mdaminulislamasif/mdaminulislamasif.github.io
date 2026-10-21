@@ -995,6 +995,245 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
         });
     });
 
+    // =========================================================================
+    // 17. JARVIS Autonomous Neural AI Portfolio Assistant
+    // =========================================================================
+    const jarvisAiTrigger = document.getElementById('jarvisAiTrigger');
+    const jarvisChatModal = document.getElementById('jarvisChatModal');
+    const jarvisChatBackdrop = document.getElementById('jarvisChatBackdrop');
+    const jarvisCloseBtn = document.getElementById('jarvisCloseBtn');
+    const jarvisClearBtn = document.getElementById('jarvisClearBtn');
+    const jarvisChatBody = document.getElementById('jarvisChatBody');
+    const jarvisChatForm = document.getElementById('jarvisChatForm');
+    const jarvisChatInput = document.getElementById('jarvisChatInput');
+    const jarvisQuickPrompts = document.getElementById('jarvisQuickPrompts');
+    const dockAiBtn = document.getElementById('dockAiBtn');
+
+    function openJarvisModal() {
+        if (!jarvisChatModal) return;
+        jarvisChatModal.classList.add('open');
+        jarvisChatModal.setAttribute('aria-hidden', 'false');
+        playSound('beep');
+        trackGoogleAdsConversion('JARVIS AI Chat Opened', 'Engagement');
+        if (jarvisChatInput) {
+            setTimeout(() => jarvisChatInput.focus(), 300);
+        }
+    }
+
+    function closeJarvisModal() {
+        if (!jarvisChatModal) return;
+        jarvisChatModal.classList.remove('open');
+        jarvisChatModal.setAttribute('aria-hidden', 'true');
+        playSound('click');
+    }
+
+    if (jarvisAiTrigger) jarvisAiTrigger.addEventListener('click', openJarvisModal);
+    if (dockAiBtn) dockAiBtn.addEventListener('click', openJarvisModal);
+    if (jarvisCloseBtn) jarvisCloseBtn.addEventListener('click', closeJarvisModal);
+    if (jarvisChatBackdrop) jarvisChatBackdrop.addEventListener('click', closeJarvisModal);
+
+    if (jarvisClearBtn) {
+        jarvisClearBtn.addEventListener('click', () => {
+            if (!jarvisChatBody) return;
+            jarvisChatBody.innerHTML = `
+                <div class="jarvis-msg ai">
+                    <div class="msg-avatar"><i class="fa-solid fa-robot"></i></div>
+                    <div class="msg-bubble">
+                        <p>Memory cleared. Neural session re-initialized. How may I assist you, Operator?</p>
+                        <span class="msg-time">Neural OS • Ready</span>
+                    </div>
+                </div>
+            `;
+            playSound('chord');
+        });
+    }
+
+    // Knowledge & Response Engine
+    function getJarvisResponse(query) {
+        const q = query.toLowerCase().trim();
+
+        // 1. Bengali Greetings & Info
+        if (q.includes('কেমন') || q.includes('বাংলা') || q.includes('কে আসিফ') || q.includes('কাজ') || q.includes('পরিচিতি') || q.includes('আসিফ জিকে')) {
+            return {
+                text: `<p>স্বাগতম! আমি <strong>JARVIS AI</strong>, আসিফ জিকে (ASIF GK)-এর পার্সোনাল নিউরাল অ্যাসিস্ট্যান্ট।</p>
+                       <p>আসিফ জিকে একজন <strong>AI আর্কিটেক্ট ও সাইবার সিকিউরিটি স্পেশালিস্ট</strong> (ঢাকা, বাংলাদেশ)। তিনি মূলত ৩টি প্রধান ক্ষেত্রে বিশ্বমানের সেবা প্রদান করেন:</p>
+                       <ul>
+                           <li>🤖 <strong>JARVIS Autonomous AI Bots</strong> এবং কাস্টম পাইথন অটোমেশন।</li>
+                           <li>🛡️ <strong>জিরো-ট্রাস্ট সাইবার ডিফেন্স</strong>, ফেস ডিটেকশন ডগ ও নেটওয়ার্ক সিকিউরিটি।</li>
+                           <li>🌐 <strong>১০জিবিপিএস BDIX ISP নেটওয়ার্ক</strong> রাউটিং ও ডেটাসেন্টার আর্কিটেকচার।</li>
+                       </ul>`,
+                actions: [
+                    { label: 'Fiverr-এ অর্ডার করুন', url: 'https://www.fiverr.com/asifgk203', class: 'fiverr', icon: 'fa-briefcase' },
+                    { label: 'হোয়াটসঅ্যাপে চ্যাট করুন', url: 'https://wa.me/8801773860372?text=Hello%20ASIF%20GK,%20JARVIS%20AI%20directed%20me%20here', class: 'whatsapp', icon: 'fa-brands fa-whatsapp' }
+                ]
+            };
+        }
+
+        // 2. Fiverr / Hire / Pricing / Gigs
+        if (q.includes('fiverr') || q.includes('hire') || q.includes('order') || q.includes('gig') || q.includes('cost') || q.includes('price') || q.includes('টাকা') || q.includes('কাজ করাতে চাই')) {
+            trackGoogleAdsConversion('JARVIS Fiverr Inquiry', 'HighIntentLead');
+            return {
+                text: `<p>You can securely hire <strong>ASIF GK</strong> on <strong>Fiverr Pro</strong> via official Escrow protection!</p>
+                       <p><strong>Top Available Gigs & Services:</strong></p>
+                       <ul>
+                           <li>Autonomous AI Agent Development (LangChain, Ollama, Python)</li>
+                           <li>B2B Targeted Lead Generation & Automated Data Scraping</li>
+                           <li>Cybersecurity Penetration Audits & Server Hardening</li>
+                           <li>MikroTik BDIX Bandwidth Shaping & ISP Optimization</li>
+                       </ul>
+                       <p>Official Fiverr Username: <code>asifgk203</code></p>`,
+                actions: [
+                    { label: 'Open Fiverr (asifgk203)', url: 'https://www.fiverr.com/asifgk203', class: 'fiverr', icon: 'fa-briefcase' },
+                    { label: 'Direct WhatsApp Discussion', url: 'https://wa.me/8801773860372?text=Hi%20ASIF%20GK,%20I%20am%20interested%20in%20hiring%20you%20via%20Fiverr', class: 'whatsapp', icon: 'fa-brands fa-whatsapp' }
+                ]
+            };
+        }
+
+        // 3. 1 Billion Pixels Gaming Billboard / Ad / Video
+        if (q.includes('ad') || q.includes('billion') || q.includes('pixel') || q.includes('gaming') || q.includes('video') || q.includes('ভিডিও') || q.includes('বিজ্ঞাপন') || q.includes('boom')) {
+            return {
+                text: `<p>The <strong>1 Billion Pixels Gaming Ad Window</strong> is our revolutionary interactive gaming display network!</p>
+                       <p>It features real-time 4K cyberpunk holographic streaming, dynamic audio spectrum visualizers, and instant conversion hooks linked with Google Ads <code>AW-4236666699</code>.</p>`,
+                actions: [
+                    { label: 'Launch 1B Pixels Fullscreen Ad', action: 'open_ad', class: 'ad', icon: 'fa-fire' }
+                ]
+            };
+        }
+
+        // 4. Cyber Security / Ethical Hacking / Watchdog
+        if (q.includes('cyber') || q.includes('hack') || q.includes('security') || q.includes('flipper') || q.includes('isp') || q.includes('mikrotik') || q.includes('সার্ভার')) {
+            return {
+                text: `<p>ASIF GK specializes in enterprise-grade <strong>Zero-Trust Cyber Architecture</strong>:</p>
+                       <ul>
+                           <li><strong>Behavioral Watchdog:</strong> Intrusion detection that locks unverified IPs in under 2ms.</li>
+                           <li><strong>Hardware Security:</strong> Flipper Zero RF testing, BadUSB countermeasures, sub-GHz protocol analysis.</li>
+                           <li><strong>BDIX Carrier Routing:</strong> 10Gbps load balancing with MikroTik CCR2004 & CCR2116 routers.</li>
+                       </ul>`,
+                actions: [
+                    { label: 'Schedule Security Audit', url: '#contact', class: 'fiverr', icon: 'fa-shield-halved' },
+                    { label: 'WhatsApp Cyber Desk', url: 'https://wa.me/8801773860372?text=Hello%20ASIF%20GK,%20I%20need%20a%20Cyber%20Security%20/%20ISP%20consultation', class: 'whatsapp', icon: 'fa-brands fa-whatsapp' }
+                ]
+            };
+        }
+
+        // 5. TikTok / DJ Music / Remix
+        if (q.includes('tiktok') || q.includes('টিকটক') || q.includes('dj') || q.includes('song') || q.includes('গান') || q.includes('remix') || q.includes('bass')) {
+            return {
+                text: `<p>ASIF GK is also a prominent creator on TikTok (<strong>@aminul_2020aj</strong>), producing high-impact 8D Bass-Boosted DJ remixes and cyber audio visualizers!</p>`,
+                actions: [
+                    { label: 'Watch TikTok (@aminul_2020aj)', url: 'https://www.tiktok.com/@aminul_2020aj', class: 'ad', icon: 'fa-brands fa-tiktok' }
+                ]
+            };
+        }
+
+        // 6. Contact / Phone / Email
+        if (q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('যোগাযোগ') || q.includes('নাম্বার')) {
+            return {
+                text: `<p>You can directly contact ASIF GK through these official encrypted channels:</p>
+                       <ul>
+                           <li>📱 <strong>WhatsApp / Mobile:</strong> +880 1773-860372</li>
+                           <li>📧 <strong>Admin Email:</strong> asifgk.hacker@gmail.com</li>
+                           <li>💼 <strong>Fiverr:</strong> asifgk203</li>
+                           <li>📍 <strong>Location:</strong> Dhaka, Bangladesh</li>
+                       </ul>`,
+                actions: [
+                    { label: 'WhatsApp Direct', url: 'https://wa.me/8801773860372', class: 'whatsapp', icon: 'fa-brands fa-whatsapp' },
+                    { label: 'Send Email', url: 'mailto:asifgk.hacker@gmail.com', class: 'fiverr', icon: 'fa-envelope' }
+                ]
+            };
+        }
+
+        // Default Intelligent Fallback
+        return {
+            text: `<p>Directive received: <em>"${escapeHtml(query)}"</em>.</p>
+                   <p>I have processed your query through the JARVIS Neural Core. ASIF GK can engineer custom autonomous AI bots, conduct deep penetration tests, optimize your enterprise ISP lines, or collaborate on your next big project.</p>
+                   <p>Would you like to speak directly with ASIF or hire him on Fiverr?</p>`,
+            actions: [
+                { label: 'Hire on Fiverr (asifgk203)', url: 'https://www.fiverr.com/asifgk203', class: 'fiverr', icon: 'fa-briefcase' },
+                { label: 'WhatsApp +8801773860372', url: 'https://wa.me/8801773860372', class: 'whatsapp', icon: 'fa-brands fa-whatsapp' }
+            ]
+        };
+    }
+
+    function appendJarvisMessage(sender, content, actions = []) {
+        if (!jarvisChatBody) return;
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `jarvis-msg ${sender}`;
+
+        let actionHtml = '';
+        if (actions && actions.length > 0) {
+            actionHtml = '<div class="chat-action-links">';
+            actions.forEach(act => {
+                if (act.action === 'open_ad') {
+                    actionHtml += `<button class="chat-btn-pill ${act.class}" onclick="document.getElementById('openBillionAdBtn').click()"><i class="fa-solid ${act.icon}"></i> ${act.label}</button>`;
+                } else if (act.url) {
+                    actionHtml += `<a href="${act.url}" target="_blank" rel="noopener noreferrer" class="chat-btn-pill ${act.class}"><i class="${act.icon}"></i> ${act.label}</a>`;
+                }
+            });
+            actionHtml += '</div>';
+        }
+
+        const now = new Date();
+        const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+        msgDiv.innerHTML = `
+            <div class="msg-avatar"><i class="fa-solid ${sender === 'user' ? 'fa-user' : 'fa-robot'}"></i></div>
+            <div class="msg-bubble">
+                ${content}
+                ${actionHtml}
+                <span class="msg-time">${sender === 'user' ? 'Operator' : 'JARVIS Neural OS'} • ${timeStr}</span>
+            </div>
+        `;
+
+        jarvisChatBody.appendChild(msgDiv);
+        jarvisChatBody.scrollTop = jarvisChatBody.scrollHeight;
+    }
+
+    function handleJarvisSubmit(queryText) {
+        if (!queryText || !queryText.trim()) return;
+        const cleanQuery = queryText.trim();
+        appendJarvisMessage('user', `<p>${escapeHtml(cleanQuery)}</p>`);
+        if (jarvisChatInput) jarvisChatInput.value = '';
+        playSound('beep');
+
+        // Typing simulation
+        const typingId = 'typing_' + Date.now();
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'jarvis-msg ai';
+        typingDiv.id = typingId;
+        typingDiv.innerHTML = `
+            <div class="msg-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div class="msg-bubble"><p><i class="fa-solid fa-spinner fa-spin"></i> <em>JARVIS is analyzing neural vectors...</em></p></div>
+        `;
+        jarvisChatBody.appendChild(typingDiv);
+        jarvisChatBody.scrollTop = jarvisChatBody.scrollHeight;
+
+        setTimeout(() => {
+            const el = document.getElementById(typingId);
+            if (el) el.remove();
+
+            const res = getJarvisResponse(cleanQuery);
+            appendJarvisMessage('ai', res.text, res.actions);
+            playSound('chord');
+        }, 650);
+    }
+
+    if (jarvisChatForm) {
+        jarvisChatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (jarvisChatInput) handleJarvisSubmit(jarvisChatInput.value);
+        });
+    }
+
+    if (jarvisQuickPrompts) {
+        jarvisQuickPrompts.addEventListener('click', (e) => {
+            const chip = e.target.closest('.quick-chip');
+            if (chip && chip.dataset.query) {
+                handleJarvisSubmit(chip.dataset.query);
+            }
+        });
+    }
+
     console.log("%c ASIF GK %c Official Cyber Portfolio // Architect: ASIF GK ", 
         "background: #00f0ff; color: #000; font-weight: bold; padding: 4px 8px; border-radius: 4px;",
         "background: #0a0e17; color: #ffd000; padding: 4px 8px; border-radius: 4px; font-weight: bold;");

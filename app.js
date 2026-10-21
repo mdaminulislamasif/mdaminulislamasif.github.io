@@ -921,6 +921,40 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
         }, 3500);
     }
 
+    // Mobile Cyber Gaming Dock Interactions
+    const dockAdBtn = document.getElementById('dockAdBtn');
+    if (dockAdBtn) {
+        dockAdBtn.addEventListener('click', () => {
+            openBillionAdModal();
+            playSound('success');
+        });
+    }
+
+    // Mobile Dock Active Item on Scroll
+    const dockItems = document.querySelectorAll('.mobile-cyber-dock .dock-item[href]');
+    const sections = document.querySelectorAll('section[id], header[id]');
+
+    window.addEventListener('scroll', () => {
+        let currentSection = '';
+        const scrollPosition = window.scrollY + 200;
+
+        sections.forEach(sec => {
+            const top = sec.offsetTop;
+            const height = sec.offsetHeight;
+            if (scrollPosition >= top && scrollPosition < top + height) {
+                currentSection = '#' + sec.getAttribute('id');
+            }
+        });
+
+        dockItems.forEach(item => {
+            if (item.getAttribute('href') === currentSection) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    });
+
     console.log("%c ASIF GK %c Official Cyber Portfolio // Architect: ASIF GK ", 
         "background: #00f0ff; color: #000; font-weight: bold; padding: 4px 8px; border-radius: 4px;",
         "background: #0a0e17; color: #ffd000; padding: 4px 8px; border-radius: 4px; font-weight: bold;");

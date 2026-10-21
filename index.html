@@ -101,6 +101,9 @@
             <span class="status-item"><strong class="highlight">BDIX STATUS:</strong> OPTIMIZED (<span id="livePingVal">1.8ms</span>)</span>
             <span class="status-sep">|</span>
             <span class="status-item"><strong class="highlight">DEFENSE:</strong> 100% WATCHDOG GUARDED</span>
+            <span class="status-sep">|</span>
+            <span class="status-item desktop-only"><strong class="highlight">HUD MODE:</strong> DESKTOP COMMAND CENTER</span>
+            <span class="status-item mobile-only"><strong class="highlight">HUD MODE:</strong> MOBILE CYBER APP</span>
         </div>
         <div class="ticker-actions">
             <button id="sfxToggleBtn" class="mini-btn" title="Toggle Cyber Audio SFX">
@@ -1062,6 +1065,34 @@
             <span>WATCH & EARN</span>
         </div>
     </button>
+
+    <!-- =============================================================
+         DEDICATED MOBILE CYBER GAMING APP BOTTOM DOCK
+         (Displays exclusively on Phone Browsers)
+         ============================================================= -->
+    <nav class="mobile-cyber-dock" id="mobileCyberDock" aria-label="Mobile Gaming Navigation Dock">
+        <a href="#hero" class="dock-item active" id="dockHomeBtn">
+            <i class="fa-solid fa-house-signal"></i>
+            <span>Home</span>
+        </a>
+        <button class="dock-item highlight-dock-ad" id="dockAdBtn">
+            <div class="dock-ad-glow"></div>
+            <i class="fa-solid fa-fire"></i>
+            <span>1B Ad</span>
+        </button>
+        <a href="#systems" class="dock-item" id="dockAiBtn">
+            <i class="fa-solid fa-microchip"></i>
+            <span>AI Brain</span>
+        </a>
+        <a href="#cyber" class="dock-item" id="dockCyberBtn">
+            <i class="fa-solid fa-shield-virus"></i>
+            <span>Cyber</span>
+        </a>
+        <a href="https://wa.me/8801773860372?text=Hello%20ASIF%20GK,%20I%20am%20reaching%20out%20from%20your%20Mobile%20Cyber%20App" target="_blank" rel="noopener noreferrer" class="dock-item dock-whatsapp" id="dockWaBtn">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+    </nav>
 
     <!-- Application Script -->
     <script src="app.js"></script>

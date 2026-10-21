@@ -689,6 +689,91 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
         // Ads will render when Google AdSense approves the publisher domain
     }
 
+    // -------------------------------------------------------------------------
+    // 15. Google Ads (423-666-6699) Conversion Tracking & Contact Dispatch
+    // -------------------------------------------------------------------------
+    function trackGoogleAdsConversion(actionName, category) {
+        try {
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'conversion', {
+                    'send_to': 'AW-4236666699',
+                    'event_category': category || 'Engagement',
+                    'event_label': actionName,
+                    'value': 1.0,
+                    'currency': 'USD'
+                });
+                console.log(`[Google Ads Tracking] Event dispatched: ${actionName}`);
+            }
+        } catch (e) {
+            // Safe fallback
+        }
+    }
+
+    // Track Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
+    const formSubmitBtn = document.getElementById('formSubmitBtn');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const senderName = document.getElementById('senderName')?.value || 'Guest';
+            const senderEmail = document.getElementById('senderEmail')?.value || '';
+            const projectDomain = document.getElementById('projectDomain')?.value || 'AI & Cyber Solutions';
+            const senderMsg = document.getElementById('senderMsg')?.value || '';
+
+            if (formSubmitBtn) {
+                formSubmitBtn.disabled = true;
+                formSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Encrypting & Transmitting...';
+            }
+
+            playSound('success');
+            trackGoogleAdsConversion('Contact Form Submitted', 'Lead');
+
+            setTimeout(() => {
+                if (formFeedback) {
+                    formFeedback.className = 'form-feedback success';
+                    formFeedback.innerHTML = `<strong>TRANSMISSION LOGGED:</strong> Thank you, ${senderName}! Your dispatch has been encrypted and received. Opening direct mail protocol...`;
+                    formFeedback.classList.remove('hidden');
+                }
+
+                // Launch mail client with pre-filled message
+                const mailSubject = encodeURIComponent(`[ASIF GK Portfolio Dispatch] ${projectDomain} - ${senderName}`);
+                const mailBody = encodeURIComponent(`Client Name: ${senderName}\nEmail: ${senderEmail}\nDomain: ${projectDomain}\n\nProject Brief:\n${senderMsg}\n\n-- Transmitted via mdaminulislamasif.github.io`);
+                window.location.href = `mailto:asifgk.hacker@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
+                if (formSubmitBtn) {
+                    formSubmitBtn.disabled = false;
+                    formSubmitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Transmission Sent';
+                }
+            }, 900);
+        });
+    }
+
+    // Track WhatsApp Direct Inquiries
+    document.querySelectorAll('a[href*="wa.me"]').forEach(waBtn => {
+        waBtn.addEventListener('click', () => {
+            playSound('click');
+            trackGoogleAdsConversion('WhatsApp Direct Chat Click', 'Lead');
+        });
+    });
+
+    // Track TikTok Profile Visits
+    document.querySelectorAll('a[href*="tiktok.com"]').forEach(ttBtn => {
+        ttBtn.addEventListener('click', () => {
+            playSound('click');
+            trackGoogleAdsConversion('TikTok Profile Visit', 'Social');
+        });
+    });
+
+    // Track Email Clicks
+    document.querySelectorAll('a[href^="mailto:"]').forEach(mailBtn => {
+        mailBtn.addEventListener('click', () => {
+            playSound('click');
+            trackGoogleAdsConversion('Email Inquiry Click', 'Lead');
+        });
+    });
+
     console.log("%c ASIF GK %c Official Cyber Portfolio // Architect: ASIF GK ", 
         "background: #00f0ff; color: #000; font-weight: bold; padding: 4px 8px; border-radius: 4px;",
         "background: #0a0e17; color: #ffd000; padding: 4px 8px; border-radius: 4px; font-weight: bold;");

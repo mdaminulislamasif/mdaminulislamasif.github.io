@@ -1972,3 +1972,727 @@ main {
         text-align: center;
     }
 }
+
+/* ==========================================================================
+   1 Billion Pixels Gaming Display Ad Billboard & Fullscreen Ad Window
+   ========================================================================== */
+
+/* Billboard In-Page Section */
+.billion-ad-section {
+    padding: 2.5rem 0 3.5rem 0;
+    position: relative;
+    z-index: 5;
+}
+
+.gaming-ad-billboard {
+    background: linear-gradient(135deg, rgba(8, 12, 22, 0.95), rgba(16, 26, 46, 0.9));
+    border: 1px solid rgba(0, 240, 255, 0.35);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.15), inset 0 0 20px rgba(0, 240, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.gaming-ad-billboard:hover {
+    box-shadow: 0 0 50px rgba(0, 240, 255, 0.25), inset 0 0 30px rgba(255, 208, 0, 0.08);
+    border-color: var(--cyan);
+}
+
+.ad-cyber-frame {
+    padding: 1.6rem 2rem;
+    position: relative;
+}
+
+.ad-top-badge-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+}
+
+.ad-google-badge {
+    background: rgba(0, 240, 255, 0.12);
+    color: var(--cyan);
+    border: 1px solid rgba(0, 240, 255, 0.35);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.ad-res-tag {
+    background: rgba(255, 208, 0, 0.12);
+    color: var(--gold);
+    border: 1px solid rgba(255, 208, 0, 0.35);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.ad-id-tag {
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
+.ad-billboard-content {
+    display: grid;
+    grid-template-columns: 240px 1fr 200px;
+    gap: 1.8rem;
+    align-items: center;
+}
+
+.ad-visual-thumb {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.ad-video-preview-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #000;
+}
+
+.ad-video-preview-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85);
+    transition: transform var(--transition-smooth), filter var(--transition-smooth);
+}
+
+.ad-video-preview-box:hover video {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+
+.ad-play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: background var(--transition-fast);
+}
+
+.ad-play-overlay i {
+    font-size: 1.5rem;
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+.ad-video-preview-box:hover .ad-play-overlay {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.ad-headline-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #ff2a55;
+    background: rgba(255, 42, 85, 0.12);
+    border: 1px solid rgba(255, 42, 85, 0.35);
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.ad-main-title {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+}
+
+.ad-desc {
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.ad-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.ad-btn-boom {
+    background: linear-gradient(135deg, var(--cyan), #00a8ff);
+    color: #000;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 800;
+    padding: 0.65rem 1.2rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 0 20px var(--cyan-glow);
+    transition: var(--transition-smooth);
+}
+
+.ad-btn-boom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px var(--cyan);
+    background: #fff;
+}
+
+.ad-btn-deal {
+    background: rgba(0, 255, 136, 0.12);
+    color: var(--green);
+    border: 1px solid rgba(0, 255, 136, 0.4);
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 0.65rem 1.1rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-smooth);
+}
+
+.ad-btn-deal:hover {
+    background: var(--green);
+    color: #000;
+    box-shadow: 0 0 20px var(--green-glow);
+}
+
+.ad-earning-meter {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 208, 0, 0.3);
+    border-radius: var(--radius-md);
+    padding: 1.2rem 1rem;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 208, 0, 0.08);
+}
+
+.meter-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+}
+
+.meter-val {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 15px var(--gold-glow);
+}
+
+.meter-sub {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   Fullscreen 1 Billion Pixels Gaming Ad Window Modal
+   ========================================================================== */
+
+.billion-ad-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.billion-ad-modal.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.ad-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 6, 12, 0.88);
+    backdrop-filter: blur(16px);
+}
+
+.ad-modal-window {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1180px;
+    max-height: 92vh;
+    background: #090e18;
+    border: 2px solid var(--cyan);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 0 60px rgba(0, 240, 255, 0.3), inset 0 0 30px rgba(0, 240, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.92);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.billion-ad-modal.open .ad-modal-window {
+    transform: scale(1);
+}
+
+/* Modal Header */
+.ad-modal-header {
+    background: #060910;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+    padding: 0.9rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ad-modal-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+}
+
+.ad-badge-pulse {
+    width: 10px;
+    height: 10px;
+    background: #ff2a55;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff2a55;
+    animation: adPulse 1.2s infinite;
+}
+
+@keyframes adPulse {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    50% { transform: scale(1.25); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.ad-brand-text {
+    color: var(--cyan);
+    font-weight: 700;
+}
+
+.ad-tag-sub {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+}
+
+.ad-modal-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ad-countdown-text {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--gold);
+    background: rgba(255, 208, 0, 0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 208, 0, 0.3);
+}
+
+.ad-close-btn {
+    background: rgba(255, 42, 85, 0.12);
+    color: #ff2a55;
+    border: 1px solid rgba(255, 42, 85, 0.4);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: var(--transition-fast);
+}
+
+.ad-close-btn:hover {
+    background: #ff2a55;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 42, 85, 0.5);
+}
+
+/* Modal Body */
+.ad-modal-body {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    overflow-y: auto;
+    max-height: calc(92vh - 60px);
+}
+
+/* Video Player Container */
+.ad-video-container {
+    position: relative;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    overflow: hidden;
+    border-right: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.ad-video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+}
+
+/* Cyber HUD Brackets for Video */
+.ad-hud-border-tl, .ad-hud-border-tr, .ad-hud-border-bl, .ad-hud-border-br {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--cyan);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.ad-hud-border-tl { top: 12px; left: 12px; border-top: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+.ad-hud-border-tr { top: 12px; right: 12px; border-top: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+.ad-hud-border-bl { bottom: 12px; left: 12px; border-bottom: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+.ad-hud-border-br { bottom: 12px; right: 12px; border-bottom: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+
+.ad-video-hud-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 1.4rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 4;
+}
+
+.ad-telemetry-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--cyan);
+    text-shadow: 0 0 8px var(--cyan);
+}
+
+.ad-video-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.ad-hud-btn {
+    background: rgba(10, 16, 28, 0.85);
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: var(--transition-fast);
+}
+
+.ad-hud-btn:hover {
+    background: var(--cyan);
+    color: #000;
+}
+
+/* Display Ad Panel */
+.ad-display-panel {
+    padding: 2.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(180deg, #090e18, #0b1322);
+}
+
+.ad-sponsor-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--gold);
+    background: var(--gold-dim);
+    border: 1px solid rgba(255, 208, 0, 0.4);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    width: fit-content;
+    margin-bottom: 0.8rem;
+}
+
+.ad-display-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.ad-display-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.ad-perks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.ad-perk {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.ad-perk i {
+    color: var(--green);
+}
+
+/* Conversion Action Box */
+.ad-conversion-box {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 240, 255, 0.25);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.ad-offer-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.offer-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--cyan);
+}
+
+.offer-val {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--gold-glow);
+}
+
+.ad-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.ad-action-btn {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: var(--transition-smooth);
+}
+
+.ad-action-btn.primary {
+    background: linear-gradient(135deg, var(--green), #00c968);
+    color: #000;
+    box-shadow: 0 0 20px var(--green-glow);
+}
+
+.ad-action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px var(--green);
+}
+
+.ad-action-btn.secondary {
+    background: rgba(0, 240, 255, 0.12);
+    color: var(--cyan);
+    border: 1px solid rgba(0, 240, 255, 0.35);
+}
+
+.ad-action-btn.secondary:hover {
+    background: var(--cyan);
+    color: #000;
+}
+
+.ad-action-btn.tiktok {
+    background: rgba(254, 44, 85, 0.12);
+    color: #fe2c55;
+    border: 1px solid rgba(254, 44, 85, 0.4);
+}
+
+.ad-action-btn.tiktok:hover {
+    background: #fe2c55;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(254, 44, 85, 0.5);
+}
+
+.ad-footer-telemetry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+}
+
+.monetize-tag {
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* Floating Cyber Gaming Ad Trigger Launcher */
+.floating-ad-launcher {
+    position: fixed;
+    bottom: 80px;
+    right: 25px;
+    z-index: 998;
+    background: linear-gradient(135deg, #090e18, #121c2e);
+    border: 1.5px solid var(--gold);
+    border-radius: var(--radius-full);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(255, 208, 0, 0.35);
+    transition: var(--transition-smooth);
+}
+
+.floating-ad-launcher i {
+    color: #ff2a55;
+    font-size: 1.25rem;
+    animation: adPulse 1.2s infinite;
+}
+
+.floating-ad-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.floating-ad-text strong {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.floating-ad-text span {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--gold);
+}
+
+.floating-ad-launcher:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 35px var(--gold);
+    border-color: #fff;
+}
+
+/* Responsive Styles for Phone and Desktop */
+@media (max-width: 980px) {
+    .ad-billboard-content {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+    
+    .ad-modal-body {
+        grid-template-columns: 1fr;
+    }
+
+    .ad-video-container {
+        min-height: 280px;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+    }
+}
+
+@media (max-width: 600px) {
+    .billion-ad-modal {
+        padding: 0.6rem;
+    }
+
+    .ad-modal-window {
+        max-height: 96vh;
+        border-radius: var(--radius-md);
+    }
+
+    .ad-modal-header {
+        padding: 0.7rem 1rem;
+    }
+
+    .ad-brand-text {
+        font-size: 0.7rem;
+    }
+
+    .ad-display-panel {
+        padding: 1.4rem 1.1rem;
+    }
+
+    .ad-display-title {
+        font-size: 1.3rem;
+    }
+
+    .floating-ad-launcher {
+        bottom: 75px;
+        right: 15px;
+        padding: 6px 12px;
+    }
+}

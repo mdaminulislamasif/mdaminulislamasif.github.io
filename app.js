@@ -394,7 +394,19 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
         matrix: `
 <span class="green">Initializing Matrix Cyber Stream...</span>
 <span class="green">01000001 01010011 01001001 01000110 01000111 01001011</span>
-<span class="green">[SYSTEM OVERRIDE SUCCESSFUL: ASIF GK NEURAL CORE ENGAGED]</span>`
+<span class="green">[SYSTEM OVERRIDE SUCCESSFUL: ASIF GK NEURAL CORE ENGAGED]</span>`,
+
+        ad: `
+<span class="gold">[1 BILLION PIXELS GAMING AD ENGINE ENGAGED]</span>
+• Status: Fullscreen Video & High-Converting Billboard Active
+• Slot ID: AW-4236666699-BILLION
+• Launching Fullscreen Cinema HUD Window...`,
+
+        sponsor: `
+<span class="cyan">[SPONSORED SHOWCASE // ASIF GK NEURAL SYSTEMS]</span>
+• Special Deal: 50% Off Autonomous AI Bots & Enterprise ISP Blueprints
+• Verified Sponsor: Google Ads Network (423-666-6699)
+• Type <span class="highlight-cmd">'ad'</span> to view the Fullscreen 1B Pixels Gaming Stream.`
     };
 
     function appendTerminal(lineHtml) {
@@ -422,6 +434,12 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
             terminalBody.innerHTML = '';
             appendTerminal(`<span class="cyan">[SYSTEM]</span> Console buffer cleared.`);
             return;
+        }
+
+        if (cmd === 'ad' || cmd === 'videoad' || cmd === 'boom') {
+            if (typeof openBillionAdModal === 'function') {
+                openBillionAdModal();
+            }
         }
 
         if (commands[cmd]) {
@@ -736,6 +754,172 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
             trackGoogleAdsConversion('Email Inquiry Click', 'Lead');
         });
     });
+
+    // -------------------------------------------------------------------------
+    // 16. 1 Billion Pixels Gaming Ad Window & Video Display Engine
+    // -------------------------------------------------------------------------
+    const billionAdModal = document.getElementById('billionAdModal');
+    const billionAdVideo = document.getElementById('billionAdVideo');
+    const closeBillionAdBtn = document.getElementById('closeBillionAdBtn');
+    const adModalBackdrop = document.getElementById('adModalBackdrop');
+    const openBillionAdBtn = document.getElementById('openBillionAdBtn');
+    const billboardVideoTrigger = document.getElementById('billboardVideoTrigger');
+    const floatingAdLauncher = document.getElementById('floatingAdLauncher');
+    const adVideoSoundBtn = document.getElementById('adVideoSoundBtn');
+    const adSoundText = document.getElementById('adSoundText');
+    const adVideoPlayPauseBtn = document.getElementById('adVideoPlayPauseBtn');
+    const adTimer = document.getElementById('adTimer');
+    const adCountdown = document.getElementById('adCountdown');
+    const earningCount = document.getElementById('earningCount');
+
+    let adCountdownInterval = null;
+    let simulatedEarnings = 128450;
+
+    function openBillionAdModal() {
+        if (!billionAdModal) return;
+        billionAdModal.classList.add('open');
+        billionAdModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        playSound('success');
+        trackGoogleAdsConversion('1B Pixels Fullscreen Ad View', 'Impression');
+
+        if (billionAdVideo) {
+            billionAdVideo.currentTime = 0;
+            billionAdVideo.muted = true;
+            billionAdVideo.play().catch(() => {});
+        }
+
+        // Start 5-second reward countdown
+        let secondsLeft = 5;
+        if (adTimer) adTimer.textContent = secondsLeft;
+        if (adCountdown) adCountdown.innerHTML = `Reward in <strong id="adTimer">${secondsLeft}</strong>s`;
+
+        clearInterval(adCountdownInterval);
+        adCountdownInterval = setInterval(() => {
+            secondsLeft--;
+            const timerEl = document.getElementById('adTimer');
+            if (timerEl) timerEl.textContent = Math.max(0, secondsLeft);
+
+            if (secondsLeft <= 0) {
+                clearInterval(adCountdownInterval);
+                if (adCountdown) {
+                    adCountdown.innerHTML = `<span style="color: var(--green); font-weight: bold;"><i class="fa-solid fa-circle-check"></i> REWARD UNLOCKED • BOOM!</span>`;
+                }
+                playSound('chord');
+                trackGoogleAdsConversion('1B Pixels Video Ad Completed', 'Engagement');
+            }
+        }, 1000);
+    }
+
+    function closeBillionAdModal() {
+        if (!billionAdModal) return;
+        billionAdModal.classList.remove('open');
+        billionAdModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+
+        if (billionAdVideo) {
+            billionAdVideo.pause();
+        }
+        clearInterval(adCountdownInterval);
+        playSound('beep');
+    }
+
+    if (openBillionAdBtn) {
+        openBillionAdBtn.addEventListener('click', openBillionAdModal);
+    }
+
+    if (billboardVideoTrigger) {
+        billboardVideoTrigger.addEventListener('click', openBillionAdModal);
+    }
+
+    if (floatingAdLauncher) {
+        floatingAdLauncher.addEventListener('click', openBillionAdModal);
+    }
+
+    if (closeBillionAdBtn) {
+        closeBillionAdBtn.addEventListener('click', closeBillionAdModal);
+    }
+
+    if (adModalBackdrop) {
+        adModalBackdrop.addEventListener('click', closeBillionAdModal);
+    }
+
+    // Escape Key to Close Ad Window
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && billionAdModal && billionAdModal.classList.contains('open')) {
+            closeBillionAdModal();
+        }
+    });
+
+    // Sound toggle on video
+    if (adVideoSoundBtn && billionAdVideo) {
+        adVideoSoundBtn.addEventListener('click', () => {
+            billionAdVideo.muted = !billionAdVideo.muted;
+            if (billionAdVideo.muted) {
+                adVideoSoundBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i> <span id="adSoundText">UNMUTE</span>';
+            } else {
+                adVideoSoundBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span id="adSoundText">MUTE</span>';
+            }
+            playSound('click');
+        });
+    }
+
+    // Play/Pause toggle on video
+    if (adVideoPlayPauseBtn && billionAdVideo) {
+        adVideoPlayPauseBtn.addEventListener('click', () => {
+            if (billionAdVideo.paused) {
+                billionAdVideo.play();
+                adVideoPlayPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i> <span>PAUSE</span>';
+            } else {
+                billionAdVideo.pause();
+                adVideoPlayPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i> <span>PLAY</span>';
+            }
+            playSound('click');
+        });
+    }
+
+    // High-CTR Conversion Trackers on Ad Modal
+    const adWaBtn = document.getElementById('adWaConversionBtn');
+    if (adWaBtn) {
+        adWaBtn.addEventListener('click', () => {
+            playSound('success');
+            trackGoogleAdsConversion('1B Pixels WhatsApp Ad Conversion', 'HighIntentLead');
+        });
+    }
+
+    const adContactBtn = document.getElementById('adContactConversionBtn');
+    if (adContactBtn) {
+        adContactBtn.addEventListener('click', () => {
+            closeBillionAdModal();
+            playSound('click');
+            trackGoogleAdsConversion('1B Pixels Contact Ad Conversion', 'HighIntentLead');
+        });
+    }
+
+    const adTtBtn = document.getElementById('adTikTokConversionBtn');
+    if (adTtBtn) {
+        adTtBtn.addEventListener('click', () => {
+            playSound('click');
+            trackGoogleAdsConversion('1B Pixels TikTok Ad Visit', 'Social');
+        });
+    }
+
+    const billboardDeal = document.getElementById('billboardDealBtn');
+    if (billboardDeal) {
+        billboardDeal.addEventListener('click', () => {
+            playSound('success');
+            trackGoogleAdsConversion('Billboard 50% Deal Claimed', 'HighIntentLead');
+        });
+    }
+
+    // Ticking simulated revenue engine (BOOM earnings indicator)
+    if (earningCount) {
+        setInterval(() => {
+            simulatedEarnings += Math.floor(Math.random() * 25) + 5;
+            earningCount.textContent = `৳ ${simulatedEarnings.toLocaleString()}+`;
+        }, 3500);
+    }
 
     console.log("%c ASIF GK %c Official Cyber Portfolio // Architect: ASIF GK ", 
         "background: #00f0ff; color: #000; font-weight: bold; padding: 4px 8px; border-radius: 4px;",

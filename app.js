@@ -572,8 +572,25 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
     }
 
     // -------------------------------------------------------------------------
-    // 10. Encrypted Dispatch Contact Form
+    // 10. Google Ads (423-666-6699) Conversion Helper & Contact Form
     // -------------------------------------------------------------------------
+    function trackGoogleAdsConversion(actionName, category) {
+        try {
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'conversion', {
+                    'send_to': 'AW-4236666699',
+                    'event_category': category || 'Engagement',
+                    'event_label': actionName,
+                    'value': 1.0,
+                    'currency': 'USD'
+                });
+                console.log(`[Google Ads Tracking] Event dispatched: ${actionName}`);
+            }
+        } catch (e) {
+            // Safe fallback
+        }
+    }
+
     const contactForm = document.getElementById('contactForm');
     const formFeedback = document.getElementById('formFeedback');
     const formSubmitBtn = document.getElementById('formSubmitBtn');
@@ -590,6 +607,9 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
             formSubmitBtn.disabled = true;
             formSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Encrypting & Transmitting...';
             playSound('terminal');
+
+            // Trigger Google Ads conversion for Lead
+            trackGoogleAdsConversion('Contact Form Submitted', 'Lead');
 
             // Optional backend transmission
             const payload = {
@@ -690,65 +710,8 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
     }
 
     // -------------------------------------------------------------------------
-    // 15. Google Ads (423-666-6699) Conversion Tracking & Contact Dispatch
+    // 15. Google Ads (423-666-6699) Conversion Tracking Event Listeners
     // -------------------------------------------------------------------------
-    function trackGoogleAdsConversion(actionName, category) {
-        try {
-            if (typeof window.gtag === 'function') {
-                window.gtag('event', 'conversion', {
-                    'send_to': 'AW-4236666699',
-                    'event_category': category || 'Engagement',
-                    'event_label': actionName,
-                    'value': 1.0,
-                    'currency': 'USD'
-                });
-                console.log(`[Google Ads Tracking] Event dispatched: ${actionName}`);
-            }
-        } catch (e) {
-            // Safe fallback
-        }
-    }
-
-    // Track Contact Form Submission
-    const contactForm = document.getElementById('contactForm');
-    const formFeedback = document.getElementById('formFeedback');
-    const formSubmitBtn = document.getElementById('formSubmitBtn');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const senderName = document.getElementById('senderName')?.value || 'Guest';
-            const senderEmail = document.getElementById('senderEmail')?.value || '';
-            const projectDomain = document.getElementById('projectDomain')?.value || 'AI & Cyber Solutions';
-            const senderMsg = document.getElementById('senderMsg')?.value || '';
-
-            if (formSubmitBtn) {
-                formSubmitBtn.disabled = true;
-                formSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Encrypting & Transmitting...';
-            }
-
-            playSound('success');
-            trackGoogleAdsConversion('Contact Form Submitted', 'Lead');
-
-            setTimeout(() => {
-                if (formFeedback) {
-                    formFeedback.className = 'form-feedback success';
-                    formFeedback.innerHTML = `<strong>TRANSMISSION LOGGED:</strong> Thank you, ${senderName}! Your dispatch has been encrypted and received. Opening direct mail protocol...`;
-                    formFeedback.classList.remove('hidden');
-                }
-
-                // Launch mail client with pre-filled message
-                const mailSubject = encodeURIComponent(`[ASIF GK Portfolio Dispatch] ${projectDomain} - ${senderName}`);
-                const mailBody = encodeURIComponent(`Client Name: ${senderName}\nEmail: ${senderEmail}\nDomain: ${projectDomain}\n\nProject Brief:\n${senderMsg}\n\n-- Transmitted via mdaminulislamasif.github.io`);
-                window.location.href = `mailto:asifgk.hacker@gmail.com?subject=${mailSubject}&body=${mailBody}`;
-
-                if (formSubmitBtn) {
-                    formSubmitBtn.disabled = false;
-                    formSubmitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Transmission Sent';
-                }
-            }, 900);
-        });
-    }
 
     // Track WhatsApp Direct Inquiries
     document.querySelectorAll('a[href*="wa.me"]').forEach(waBtn => {

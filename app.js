@@ -410,7 +410,7 @@ Type <span class="highlight-cmd">'contact'</span> to initiate direct encrypted c
 
         fiverr: `
 <span class="green">[OFFICIAL FIVERR PRO FREELANCE PROFILE]</span>
-• Profile: https://www.fiverr.com/asifgk
+• Profile: https://www.fiverr.com/asifgk203
 • Expertise: Custom JARVIS AI Bots, B2B Leads, Web Scraping & Python Automation
 • Rating: 5.0 ★ Top-Rated Experience // Fast Delivery
 • Orders: Available for Direct Contracts via Fiverr Escrow`
